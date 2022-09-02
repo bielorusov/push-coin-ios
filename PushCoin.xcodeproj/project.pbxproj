@@ -11,6 +11,7 @@
 		1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7328C229BC00C65950 /* ContentView.swift */; };
 		1F8E0E7628C229BD00C65950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7528C229BD00C65950 /* Assets.xcassets */; };
 		1F8E0E7928C229BD00C65950 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7828C229BD00C65950 /* Preview Assets.xcassets */; };
+		1F8E0E8228C2380600C65950 /* HoleTapBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		1F8E0E7328C229BC00C65950 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1F8E0E7528C229BD00C65950 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F8E0E7828C229BD00C65950 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1F8E0E7F28C22B3700C65950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleTapBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +54,11 @@
 		1F8E0E7028C229BC00C65950 /* PushCoin */ = {
 			isa = PBXGroup;
 			children = (
+				1F8E0E8028C237E900C65950 /* Views */,
 				1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */,
 				1F8E0E7328C229BC00C65950 /* ContentView.swift */,
 				1F8E0E7528C229BD00C65950 /* Assets.xcassets */,
+				1F8E0E7F28C22B3700C65950 /* Info.plist */,
 				1F8E0E7728C229BD00C65950 /* Preview Content */,
 			);
 			path = PushCoin;
@@ -65,6 +70,14 @@
 				1F8E0E7828C229BD00C65950 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1F8E0E8028C237E900C65950 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +152,7 @@
 			files = (
 				1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */,
 				1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */,
+				1F8E0E8228C2380600C65950 /* HoleTapBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,9 +286,13 @@
 				DEVELOPMENT_TEAM = GBPS8WC3CU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PushCoin/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "App required use your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App required use your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -286,7 +304,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -301,9 +319,13 @@
 				DEVELOPMENT_TEAM = GBPS8WC3CU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PushCoin/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "App required use your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App required use your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -315,7 +337,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
