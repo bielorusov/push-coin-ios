@@ -8,26 +8,56 @@
 import SwiftUI
 
 struct HoleTapBarView: View {
-    var body: some View {
-      VStack{
-        Spacer()
+  var body: some View {
+    VStack{
+      ZStack {
         HoleShape()
+        HStack(alignment: .center) {
+          Spacer()
+          HoleTapBarIcon(imageName: "Home", isActive: true)
+          Spacer()
+          HoleTapBarIcon(imageName: "Wallet", isActive: false)
+          Group {
+            Spacer()
+            Spacer()
+            Spacer()
+          }
+          HoleTapBarIcon(imageName: "MapPin", isActive: false)
+          Spacer()
+          HoleTapBarIcon(imageName: "Burger", isActive: false)
+          Spacer()
+        }
       }
-      .edgesIgnoringSafeArea(.all)
+    }    
+  }
+}
+
+struct HoleTapBarIcon: View {
+  let imageName: String
+  let isActive: Bool
+  
+  var body: some View {
+    if(isActive) {
+      Image("\(imageName)Active")
+    } else {
+      Image(imageName)
     }
+  }
 }
 
 struct HoleShape: View {
   let gradient = Gradient(colors: [Color("HoleTapBar_1"), Color("HoleTapBar_0")])
+  let maxWidth = UIScreen.main.bounds.width
+  let maxHeight: CGFloat = 60
   
   var body: some View {
     ZStack {
       Rectangle()
-        .fill(RadialGradient(gradient: gradient, center: .top, startRadius: -0, endRadius: 120))
-        .frame(width: UIScreen.main.bounds.width, height: 60)
+        .fill(RadialGradient(gradient: gradient, center: .top, startRadius: 0, endRadius: 100))
+        .frame(width: maxWidth, height: maxHeight)
       Image("HoleMask")
-        .frame(width: UIScreen.main.bounds.width, height: 60)
-        .offset(x: 0, y: -12)
+//        .frame(width: maxWidth, height: maxHeight)
+        .offset(x: 10, y: -12)
         .blendMode(.destinationOut)
     }
     .compositingGroup()
@@ -35,7 +65,8 @@ struct HoleShape: View {
 }
 
 struct HoleTapBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        HoleTapBarView()
-    }
+  static var previews: some View {
+    HoleTapBarView()
+      .previewInterfaceOrientation(.portrait)
+  }
 }
