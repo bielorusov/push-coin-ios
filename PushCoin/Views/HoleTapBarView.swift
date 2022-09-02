@@ -8,23 +8,25 @@
 import SwiftUI
 
 struct HoleTapBarView: View {
+  @StateObject var viewRouter: ViewRouter
+  
   var body: some View {
     VStack{
       ZStack {
         HoleShape()
         HStack(alignment: .center) {
           Spacer()
-          HoleTapBarIcon(imageName: "Home", isActive: true)
+          HoleTapBarIcon(imageName: "Home", assignedPage: .home, viewRouter: viewRouter)
           Spacer()
-          HoleTapBarIcon(imageName: "Wallet", isActive: false)
+          HoleTapBarIcon(imageName: "Wallet", assignedPage: .wallet, viewRouter: viewRouter)
           Group {
             Spacer()
             Spacer()
             Spacer()
           }
-          HoleTapBarIcon(imageName: "MapPin", isActive: false)
+          HoleTapBarIcon(imageName: "MapPin", assignedPage: .mapPin, viewRouter: viewRouter)
           Spacer()
-          HoleTapBarIcon(imageName: "Burger", isActive: false)
+          HoleTapBarIcon(imageName: "Burger", assignedPage: .burger, viewRouter: viewRouter)
           Spacer()
         }
       }
@@ -34,13 +36,15 @@ struct HoleTapBarView: View {
 
 struct HoleTapBarIcon: View {
   let imageName: String
-  let isActive: Bool
+  let assignedPage: Page
+  @StateObject var viewRouter: ViewRouter
   
   var body: some View {
-    if(isActive) {
-      Image("\(imageName)Active")
-    } else {
-      Image(imageName)
+    VStack {
+      viewRouter.currentPage == assignedPage ? Image("\(imageName)Active") : Image(imageName)
+    }
+    .onTapGesture {
+      viewRouter.currentPage = assignedPage
     }
   }
 }
@@ -66,7 +70,7 @@ struct HoleShape: View {
 
 struct HoleTapBarView_Previews: PreviewProvider {
   static var previews: some View {
-    HoleTapBarView()
-      .previewInterfaceOrientation(.portrait)
+    HoleTapBarView(viewRouter: ViewRouter())
+      .previewInterfaceOrientation(.portraitUpsideDown)
   }
 }
