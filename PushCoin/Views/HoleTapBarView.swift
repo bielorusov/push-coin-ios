@@ -30,7 +30,7 @@ struct HoleTapBarView: View {
           Spacer()
         }
       }
-    }    
+    }
   }
 }
 
@@ -60,7 +60,7 @@ struct HoleShape: View {
         .fill(RadialGradient(gradient: gradient, center: .top, startRadius: 0, endRadius: 100))
         .frame(width: maxWidth, height: maxHeight)
       Image("HoleMask")
-//        .frame(width: maxWidth, height: maxHeight)
+      //        .frame(width: maxWidth, height: maxHeight)
         .offset(x: 10, y: -12)
         .blendMode(.destinationOut)
     }
