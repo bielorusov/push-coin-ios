@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-typealias AppStore = Store<AppState, RootReducer>
 
 struct ContentView: View {
   private let store: AppStore = Store(
@@ -20,13 +19,24 @@ struct ContentView: View {
   
   var body: some View {
     VStack {
-      MainView().environmentObject(store)
+      RootView()
+        .environmentObject(store)
     }
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
+//    let store: AppStore = Store(
+//      initialState: AppState(
+//        counterState: .initialState
+//      ),
+//      rootReducer: RootReducer(
+//        counterReducer: .init()
+//      )
+//    )
+    
     ContentView()
+//      .environmentObject(store)
   }
 }

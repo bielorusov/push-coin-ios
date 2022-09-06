@@ -24,6 +24,7 @@
 		1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9828C520FA00C65950 /* CounterReducer.swift */; };
 		1F8E0E9B28C521BE00C65950 /* ReduxState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9A28C521BE00C65950 /* ReduxState.swift */; };
 		1F8E0E9D28C521D300C65950 /* ReduxAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9C28C521D300C65950 /* ReduxAction.swift */; };
+		1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB55C928C76304009E3E7E /* RootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		1F8E0E9828C520FA00C65950 /* CounterReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterReducer.swift; sourceTree = "<group>"; };
 		1F8E0E9A28C521BE00C65950 /* ReduxState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxState.swift; sourceTree = "<group>"; };
 		1F8E0E9C28C521D300C65950 /* ReduxAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxAction.swift; sourceTree = "<group>"; };
+		1FBB55C928C76304009E3E7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +80,11 @@
 		1F8E0E7028C229BC00C65950 /* PushCoin */ = {
 			isa = PBXGroup;
 			children = (
-				1F8E0E8928C51F7400C65950 /* Redux */,
-				1F8E0E8028C237E900C65950 /* Views */,
 				1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */,
 				1F8E0E7328C229BC00C65950 /* ContentView.swift */,
 				1F8E0E8328C2B67400C65950 /* ViewRouter.swift */,
+				1F8E0E8928C51F7400C65950 /* Redux */,
+				1F8E0E8028C237E900C65950 /* Views */,
 				1F8E0E7528C229BD00C65950 /* Assets.xcassets */,
 				1F8E0E7F28C22B3700C65950 /* Info.plist */,
 				1F8E0E7728C229BD00C65950 /* Preview Content */,
@@ -101,6 +103,7 @@
 		1F8E0E8028C237E900C65950 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1FBB55C928C76304009E3E7E /* RootView.swift */,
 				1F8E0E8728C2C2E800C65950 /* LandingView.swift */,
 				1F8E0E8528C2B9E100C65950 /* MainView.swift */,
 				1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */,
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */,
 				1F8E0E9B28C521BE00C65950 /* ReduxState.swift in Sources */,
 				1F8E0E9D28C521D300C65950 /* ReduxAction.swift in Sources */,
 				1F8E0E8D28C51FC400C65950 /* ReduxReducer.swift in Sources */,
@@ -234,10 +238,10 @@
 				1F8E0E9128C5204500C65950 /* CounterState.swift in Sources */,
 				1F8E0E9728C520DE00C65950 /* CounterAction.swift in Sources */,
 				1F8E0E8F28C5200400C65950 /* Store.swift in Sources */,
+				1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */,
 				1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */,
 				1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */,
 				1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */,
-				1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */,
 				1F8E0E8228C2380600C65950 /* HoleTapBarView.swift in Sources */,
 				1F8E0E8628C2B9E100C65950 /* MainView.swift in Sources */,
 				1F8E0E8428C2B67400C65950 /* ViewRouter.swift in Sources */,

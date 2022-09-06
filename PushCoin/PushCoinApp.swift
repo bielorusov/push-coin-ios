@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
-
-//typealias AppStore = Store<AppState, RootReducer>
+typealias AppStore = Store<AppState, RootReducer>
 
 @main
 struct PushCoinApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()      
+      ContentView()
     }
   }
 }
