@@ -19,16 +19,13 @@ struct HoleTapBarView: View {
           HoleTapBarIcon(imageName: "Home", assignedPage: .home, viewRouter: viewRouter)
           Spacer()
           HoleTapBarIcon(imageName: "Wallet", assignedPage: .wallet, viewRouter: viewRouter)
-          Group {
-            Spacer()
-            Spacer()
-            Spacer()
-          }
+          Spacer(minLength: UIScreen.main.bounds.width/3)
           HoleTapBarIcon(imageName: "MapPin", assignedPage: .mapPin, viewRouter: viewRouter)
           Spacer()
           HoleTapBarIcon(imageName: "Burger", assignedPage: .burger, viewRouter: viewRouter)
           Spacer()
         }
+        CircleButtonView()
       }
     }
   }
@@ -61,7 +58,7 @@ struct HoleShape: View {
         .frame(width: maxWidth, height: maxHeight)
       Image("HoleMask")
       //        .frame(width: maxWidth, height: maxHeight)
-        .offset(x: 10, y: -12)
+        .offset(x: 3, y: -12)
         .blendMode(.destinationOut)
     }
     .compositingGroup()
@@ -71,6 +68,22 @@ struct HoleShape: View {
 struct HoleTapBarView_Previews: PreviewProvider {
   static var previews: some View {
     HoleTapBarView(viewRouter: ViewRouter())
-      .previewInterfaceOrientation(.portraitUpsideDown)
+      .previewInterfaceOrientation(.portrait)
+  }
+}
+
+struct CircleButtonView: View {
+  var body: some View {
+    ZStack {
+      Circle()
+        .fill(LinearGradient(
+          gradient: Gradient(colors: [Color("PlusButtonGrad1"), Color("PlusButtonGrad2")]),
+          startPoint: .top,
+          endPoint: .bottom))
+        .frame(width: 56, height: 56, alignment: .center)
+      Image("MapIcon")
+        .frame(width: 56, height: 56, alignment: .center)
+      
+    }.offset(x: 0, y: -18)
   }
 }

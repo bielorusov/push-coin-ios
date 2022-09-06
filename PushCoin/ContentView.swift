@@ -27,16 +27,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-//    let store: AppStore = Store(
-//      initialState: AppState(
-//        counterState: .initialState
-//      ),
-//      rootReducer: RootReducer(
-//        counterReducer: .init()
-//      )
-//    )
-    
     ContentView()
-//      .environmentObject(store)
   }
 }
