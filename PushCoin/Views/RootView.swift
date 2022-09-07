@@ -18,10 +18,12 @@ struct RootView_Previews: PreviewProvider {
   static var previews: some View {
     let store: AppStore = Store(
       initialState: AppState(
-        counterState: .initialState
+        counterState: .initialState,
+        pageState: .initialState
       ),
       rootReducer: RootReducer(
-        counterReducer: .init()
+        counterReducer: .init(),
+        pageReducer: .init()
       )
     )
     

@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct MainView: View {
-  @StateObject var viewRouter = ViewRouter()
+//  @StateObject var viewRouter = ViewRouter()
+  
+  @EnvironmentObject var store: AppStore
   
   var body: some View {
     VStack {
       Spacer()
-      switch viewRouter.currentPage {
+      switch store.state.pageState.currentPage {
         case .home:
           CounterView()
         case .wallet:
@@ -24,7 +26,7 @@ struct MainView: View {
           Text("Burger")
       }
       Spacer()
-      HoleTapBarView(viewRouter: viewRouter)
+      HoleTapBarView()
     }
     .edgesIgnoringSafeArea(.all)
   }
@@ -54,10 +56,12 @@ struct MainView_Previews: PreviewProvider {
   static var previews: some View {
     let store: AppStore = Store(
       initialState: AppState(
-        counterState: .initialState
+        counterState: .initialState,
+        pageState: .initialState
       ),
       rootReducer: RootReducer(
-        counterReducer: .init()
+        counterReducer: .init(),
+        pageReducer: .init()
       )
     )
     

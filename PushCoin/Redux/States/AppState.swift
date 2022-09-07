@@ -9,4 +9,5 @@ import Foundation
 
 struct AppState: ReduxState {
   let counterState: CounterState
+  let pageState: PageState
 }

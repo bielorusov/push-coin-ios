@@ -23,6 +23,9 @@
 		1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9828C520FA00C65950 /* CounterReducer.swift */; };
 		1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB55C928C76304009E3E7E /* RootView.swift */; };
 		1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F528C77CD900B2BD5B /* Redux.swift */; };
+		1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F928C8A71B00B2BD5B /* PageAction.swift */; };
+		1FDA22FC28C8A78000B2BD5B /* PageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22FB28C8A78000B2BD5B /* PageState.swift */; };
+		1FDA22FE28C8A81400B2BD5B /* PageReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22FD28C8A81400B2BD5B /* PageReducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		1F8E0E9828C520FA00C65950 /* CounterReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterReducer.swift; sourceTree = "<group>"; };
 		1FBB55C928C76304009E3E7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1FDA22F528C77CD900B2BD5B /* Redux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
+		1FDA22F928C8A71B00B2BD5B /* PageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAction.swift; sourceTree = "<group>"; };
+		1FDA22FB28C8A78000B2BD5B /* PageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageState.swift; sourceTree = "<group>"; };
+		1FDA22FD28C8A81400B2BD5B /* PageReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				1F8E0E9628C520DE00C65950 /* CounterAction.swift */,
+				1FDA22F928C8A71B00B2BD5B /* PageAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -133,6 +140,7 @@
 			children = (
 				1F8E0E9228C5206900C65950 /* AppState.swift */,
 				1F8E0E9028C5204500C65950 /* CounterState.swift */,
+				1FDA22FB28C8A78000B2BD5B /* PageState.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			children = (
 				1F8E0E9428C5208000C65950 /* RootReducer.swift */,
 				1F8E0E9828C520FA00C65950 /* CounterReducer.swift */,
+				1FDA22FD28C8A81400B2BD5B /* PageReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -240,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */,
+				1FDA22FE28C8A81400B2BD5B /* PageReducer.swift in Sources */,
 				1F8E0E9528C5208000C65950 /* RootReducer.swift in Sources */,
 				1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */,
 				1F8E0E9328C5206900C65950 /* AppState.swift in Sources */,
@@ -247,7 +257,9 @@
 				1F8E0E9728C520DE00C65950 /* CounterAction.swift in Sources */,
 				1F8E0E8F28C5200400C65950 /* Store.swift in Sources */,
 				1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */,
+				1FDA22FC28C8A78000B2BD5B /* PageState.swift in Sources */,
 				1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */,
+				1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */,
 				1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */,
 				1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */,
 				1F8E0E8228C2380600C65950 /* HoleTapBarView.swift in Sources */,

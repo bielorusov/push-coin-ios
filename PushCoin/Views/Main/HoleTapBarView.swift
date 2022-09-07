@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HoleTapBarView: View {
-  @StateObject var viewRouter: ViewRouter
+  @EnvironmentObject var store: AppStore
   
   var body: some View {
     VStack{
@@ -16,33 +16,46 @@ struct HoleTapBarView: View {
         HoleShape()
         HStack(alignment: .center) {
           Spacer()
-          HoleTapBarIcon(imageName: "Home", assignedPage: .home, viewRouter: viewRouter)
+          HoleTapBarIconView(imageName: "Home", assignedPage: .home)
           Spacer()
-          HoleTapBarIcon(imageName: "Wallet", assignedPage: .wallet, viewRouter: viewRouter)
+          HoleTapBarIconView(imageName: "Wallet", assignedPage: .wallet)
           Spacer(minLength: UIScreen.main.bounds.width/3)
-          HoleTapBarIcon(imageName: "MapPin", assignedPage: .mapPin, viewRouter: viewRouter)
+          HoleTapBarIconView(imageName: "MapPin", assignedPage: .mapPin)
           Spacer()
-          HoleTapBarIcon(imageName: "Burger", assignedPage: .burger, viewRouter: viewRouter)
+          HoleTapBarIconView(imageName: "Burger", assignedPage: .burger)
           Spacer()
         }
-//        CamCircleButtonView()
-        MapCircleButtonView()
+        
+        switch store.state.pageState.currentPage {
+          case .home:
+            MapCircleButtonView()
+          case .mapPin:
+            CamCircleButtonView()
+          default:
+            MapCircleButtonView()
+        }
       }
     }
   }
 }
 
-struct HoleTapBarIcon: View {
+struct HoleTapBarIconView: View {
+  @EnvironmentObject var store: AppStore
+  
   let imageName: String
   let assignedPage: Page
-  @StateObject var viewRouter: ViewRouter
   
   var body: some View {
     VStack {
-      viewRouter.currentPage == assignedPage ? Image("\(imageName)Active") : Image(imageName)
-    }
-    .onTapGesture {
-      viewRouter.currentPage = assignedPage
+      Button(action: {
+        self.store.dispatch(PageAction.goTo(assignedPage))
+      }) {
+        if store.state.pageState.currentPage == assignedPage {
+          Image("\(imageName)Active")
+        } else {
+          Image(imageName)
+        }
+      }
     }
   }
 }
@@ -66,13 +79,6 @@ struct HoleShape: View {
   }
 }
 
-struct HoleTapBarView_Previews: PreviewProvider {
-  static var previews: some View {
-    HoleTapBarView(viewRouter: ViewRouter())
-      .previewInterfaceOrientation(.portrait)
-  }
-}
-
 struct MapCircleButtonView: View {
   var body: some View {
     Button(action: {
@@ -88,7 +94,7 @@ struct MapCircleButtonView: View {
 struct CamCircleButtonView: View {
   var body: some View {
     Button(action: {
-      print("Map button Pressed")
+      print("Camera button Pressed")
     }) {
       CircleButtonView(
         image: Image(systemName: "camera.viewfinder")
@@ -114,5 +120,12 @@ struct CircleButtonView: View {
         .frame(width: 56, height: 56, alignment: .center)
       
     }.offset(x: 0, y: -18)
+  }
+}
+
+struct HoleTapBarView_Previews: PreviewProvider {
+  static var previews: some View {
+    HoleTapBarView()
+      .previewInterfaceOrientation(.portrait)
   }
 }

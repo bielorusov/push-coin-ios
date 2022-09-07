@@ -10,10 +10,12 @@ import SwiftUI
 struct ContentView: View {
   private let store: AppStore = Store(
     initialState: AppState(
-      counterState: .initialState
+      counterState: .initialState,
+      pageState: .initialState
     ),
     rootReducer: RootReducer(
-      counterReducer: .init()
+      counterReducer: .init(),
+      pageReducer: .init()
     )
   )
   
