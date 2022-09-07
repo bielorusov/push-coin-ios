@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+  private let store: AppStore = Store(
+    initialState: AppState(
+      counterState: .initialState,
+      pageState: .initialState
+    ),
+    rootReducer: RootReducer(
+      counterReducer: .init(),
+      pageReducer: .init()
+    )
+  )
+  
   var body: some View {
     VStack {
-      MainView()
+      RootView()
+        .environmentObject(store)
+
     }
   }
 }
