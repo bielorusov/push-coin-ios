@@ -8,15 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-      VStack {
-        MainView()
-      }
+  private let store: AppStore = Store(
+    initialState: AppState(
+      counterState: .initialState,
+      pageState: .initialState
+    ),
+    rootReducer: RootReducer(
+      counterReducer: .init(),
+      pageReducer: .init()
+    )
+  )
+  
+  var body: some View {
+    VStack {
+      RootView()
+        .environmentObject(store)
     }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }

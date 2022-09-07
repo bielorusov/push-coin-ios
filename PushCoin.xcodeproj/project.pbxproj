@@ -15,6 +15,17 @@
 		1F8E0E8428C2B67400C65950 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E8328C2B67400C65950 /* ViewRouter.swift */; };
 		1F8E0E8628C2B9E100C65950 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E8528C2B9E100C65950 /* MainView.swift */; };
 		1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E8728C2C2E800C65950 /* LandingView.swift */; };
+		1F8E0E8F28C5200400C65950 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E8E28C5200400C65950 /* Store.swift */; };
+		1F8E0E9128C5204500C65950 /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9028C5204500C65950 /* CounterState.swift */; };
+		1F8E0E9328C5206900C65950 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9228C5206900C65950 /* AppState.swift */; };
+		1F8E0E9528C5208000C65950 /* RootReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9428C5208000C65950 /* RootReducer.swift */; };
+		1F8E0E9728C520DE00C65950 /* CounterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9628C520DE00C65950 /* CounterAction.swift */; };
+		1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9828C520FA00C65950 /* CounterReducer.swift */; };
+		1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB55C928C76304009E3E7E /* RootView.swift */; };
+		1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F528C77CD900B2BD5B /* Redux.swift */; };
+		1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F928C8A71B00B2BD5B /* PageAction.swift */; };
+		1FDA22FC28C8A78000B2BD5B /* PageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22FB28C8A78000B2BD5B /* PageState.swift */; };
+		1FDA22FE28C8A81400B2BD5B /* PageReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22FD28C8A81400B2BD5B /* PageReducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +39,17 @@
 		1F8E0E8328C2B67400C65950 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		1F8E0E8528C2B9E100C65950 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1F8E0E8728C2C2E800C65950 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		1F8E0E8E28C5200400C65950 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		1F8E0E9028C5204500C65950 /* CounterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterState.swift; sourceTree = "<group>"; };
+		1F8E0E9228C5206900C65950 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		1F8E0E9428C5208000C65950 /* RootReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
+		1F8E0E9628C520DE00C65950 /* CounterAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterAction.swift; sourceTree = "<group>"; };
+		1F8E0E9828C520FA00C65950 /* CounterReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterReducer.swift; sourceTree = "<group>"; };
+		1FBB55C928C76304009E3E7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1FDA22F528C77CD900B2BD5B /* Redux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
+		1FDA22F928C8A71B00B2BD5B /* PageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAction.swift; sourceTree = "<group>"; };
+		1FDA22FB28C8A78000B2BD5B /* PageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageState.swift; sourceTree = "<group>"; };
+		1FDA22FD28C8A81400B2BD5B /* PageReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +82,11 @@
 		1F8E0E7028C229BC00C65950 /* PushCoin */ = {
 			isa = PBXGroup;
 			children = (
-				1F8E0E8028C237E900C65950 /* Views */,
 				1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */,
 				1F8E0E7328C229BC00C65950 /* ContentView.swift */,
 				1F8E0E8328C2B67400C65950 /* ViewRouter.swift */,
+				1F8E0E8028C237E900C65950 /* Views */,
+				1F8E0E8928C51F7400C65950 /* Redux */,
 				1F8E0E7528C229BD00C65950 /* Assets.xcassets */,
 				1F8E0E7F28C22B3700C65950 /* Info.plist */,
 				1F8E0E7728C229BD00C65950 /* Preview Content */,
@@ -82,11 +105,77 @@
 		1F8E0E8028C237E900C65950 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1FDA22F828C77DB100B2BD5B /* Landing */,
+				1FDA22F728C77D9200B2BD5B /* Main */,
+				1FBB55C928C76304009E3E7E /* RootView.swift */,
 				1F8E0E8728C2C2E800C65950 /* LandingView.swift */,
 				1F8E0E8528C2B9E100C65950 /* MainView.swift */,
-				1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1F8E0E8928C51F7400C65950 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				1FDA22F528C77CD900B2BD5B /* Redux.swift */,
+				1F8E0EA228C52DCD00C65950 /* Store */,
+				1F8E0E9F28C522D100C65950 /* Actions */,
+				1F8E0EA028C5234400C65950 /* States */,
+				1F8E0EA128C5236100C65950 /* Reducers */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		1F8E0E9F28C522D100C65950 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				1F8E0E9628C520DE00C65950 /* CounterAction.swift */,
+				1FDA22F928C8A71B00B2BD5B /* PageAction.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		1F8E0EA028C5234400C65950 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				1F8E0E9228C5206900C65950 /* AppState.swift */,
+				1F8E0E9028C5204500C65950 /* CounterState.swift */,
+				1FDA22FB28C8A78000B2BD5B /* PageState.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		1F8E0EA128C5236100C65950 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				1F8E0E9428C5208000C65950 /* RootReducer.swift */,
+				1F8E0E9828C520FA00C65950 /* CounterReducer.swift */,
+				1FDA22FD28C8A81400B2BD5B /* PageReducer.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		1F8E0EA228C52DCD00C65950 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				1F8E0E8E28C5200400C65950 /* Store.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		1FDA22F728C77D9200B2BD5B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1FDA22F828C77DB100B2BD5B /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Landing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,9 +248,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */,
-				1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */,
 				1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */,
+				1FDA22FE28C8A81400B2BD5B /* PageReducer.swift in Sources */,
+				1F8E0E9528C5208000C65950 /* RootReducer.swift in Sources */,
+				1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */,
+				1F8E0E9328C5206900C65950 /* AppState.swift in Sources */,
+				1F8E0E9128C5204500C65950 /* CounterState.swift in Sources */,
+				1F8E0E9728C520DE00C65950 /* CounterAction.swift in Sources */,
+				1F8E0E8F28C5200400C65950 /* Store.swift in Sources */,
+				1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */,
+				1FDA22FC28C8A78000B2BD5B /* PageState.swift in Sources */,
+				1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */,
+				1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */,
+				1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */,
+				1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */,
 				1F8E0E8228C2380600C65950 /* HoleTapBarView.swift in Sources */,
 				1F8E0E8628C2B9E100C65950 /* MainView.swift in Sources */,
 				1F8E0E8428C2B67400C65950 /* ViewRouter.swift in Sources */,
@@ -305,8 +405,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,8 +437,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
