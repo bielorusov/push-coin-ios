@@ -25,7 +25,8 @@ struct HoleTapBarView: View {
           HoleTapBarIcon(imageName: "Burger", assignedPage: .burger, viewRouter: viewRouter)
           Spacer()
         }
-        CircleButtonView()
+//        CamCircleButtonView()
+        MapCircleButtonView()
       }
     }
   }
@@ -72,7 +73,33 @@ struct HoleTapBarView_Previews: PreviewProvider {
   }
 }
 
+struct MapCircleButtonView: View {
+  var body: some View {
+    Button(action: {
+      print("Map button Pressed")
+    }) {
+      CircleButtonView(
+        image: Image("MapIcon")
+      )
+    }
+  }
+}
+
+struct CamCircleButtonView: View {
+  var body: some View {
+    Button(action: {
+      print("Map button Pressed")
+    }) {
+      CircleButtonView(
+        image: Image(systemName: "camera.viewfinder")
+      )
+    }
+  }
+}
+
 struct CircleButtonView: View {
+  let image: Image
+  
   var body: some View {
     ZStack {
       Circle()
@@ -81,7 +108,9 @@ struct CircleButtonView: View {
           startPoint: .top,
           endPoint: .bottom))
         .frame(width: 56, height: 56, alignment: .center)
-      Image("MapIcon")
+      image
+        .font(.title)
+        .foregroundColor(.white)
         .frame(width: 56, height: 56, alignment: .center)
       
     }.offset(x: 0, y: -18)
