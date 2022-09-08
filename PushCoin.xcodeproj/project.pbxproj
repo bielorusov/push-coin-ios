@@ -35,6 +35,7 @@
 		1FDA231728CA3D8900B2BD5B /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA231628CA3D8900B2BD5B /* Core.swift */; };
 		1FDA231928CA3FC200B2BD5B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA231828CA3FC200B2BD5B /* SignUpView.swift */; };
 		1FDA231B28CA412A00B2BD5B /* SignUpWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA231A28CA412A00B2BD5B /* SignUpWithEmailView.swift */; };
+		1FDA231D28CA4A4A00B2BD5B /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA231C28CA4A4900B2BD5B /* SecureTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		1FDA231628CA3D8900B2BD5B /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		1FDA231828CA3FC200B2BD5B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1FDA231A28CA412A00B2BD5B /* SignUpWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailView.swift; sourceTree = "<group>"; };
+		1FDA231C28CA4A4900B2BD5B /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				1FDA230D28CA1F7800B2BD5B /* LabelledDividerView.swift */,
+				1FDA231C28CA4A4900B2BD5B /* SecureTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				1FDA231928CA3FC200B2BD5B /* SignUpView.swift in Sources */,
 				1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */,
 				1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */,
+				1FDA231D28CA4A4A00B2BD5B /* SecureTextField.swift in Sources */,
 				1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */,
 				1FDA230E28CA1F7800B2BD5B /* LabelledDividerView.swift in Sources */,
 				1F8E0E8228C2380600C65950 /* HoleTapBarView.swift in Sources */,

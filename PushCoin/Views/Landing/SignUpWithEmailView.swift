@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct SignUpWithEmailView: View {
+  @State private var password = ""
+  @State private var email = ""
   var body: some View {
-    Text("SignUp Vith Email View")
+    VStack {
+      Form {
+        TextField("Email", text: $email)
+        SecureTextField(l: "Password", text: $password)
+      }
+    }
   }
 }
 
