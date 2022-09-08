@@ -54,19 +54,8 @@ struct CounterView: View {
 
 struct MainView_Previews: PreviewProvider {
   static var previews: some View {
-    let store: AppStore = Store(
-      initialState: AppState(
-        counterState: .initialState,
-        pageState: .initialState
-      ),
-      rootReducer: RootReducer(
-        counterReducer: .init(),
-        pageReducer: .init()
-      )
-    )
-    
     MainView()
-      .environmentObject(store)
+      .environmentObject(Core.initedStore)
   }
 }
 
