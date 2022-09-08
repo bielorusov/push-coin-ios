@@ -13,11 +13,16 @@ struct SignUpView: View {
       Circle()
         .fill(Color.App.shape)
         .frame(width: 166, height: 166)
+        .padding(.top, 2 * Geometry.Size.padding)
+
       Spacer()
+      
       Text("Sign up with")
         .font(Font.App.plain)
         .padding([.top, .bottom], Geometry.Size.padding)
+      
       SocialPlateView()
+      
       LabelledDivider(label: "or")
         .frame(width: Geometry.Size.formWidth)
         .padding([.top, .bottom], Geometry.Size.padding)
@@ -25,17 +30,16 @@ struct SignUpView: View {
       Button(action: {
         print("Sign In With Email Pressed!")
       }){
-        ZStack {
-          Capsule()
-            .fill(Color.Button.facebook)
-            .frame(
-              width: Geometry.Size.buttonWidth,
-              height: Geometry.Size.buttonHeight
-            )
-          Text("I’ll use email or phone")
-            .font(Font.App.plain)
-            .foregroundColor(.white)
-        }
+        Capsule()
+          .fill(Color.Button.facebook)
+          .frame(
+            width: Geometry.Size.buttonWidth,
+            height: Geometry.Size.buttonHeight
+          ).overlay {
+            Text("I’ll use email or phone")
+              .font(Font.App.plain)
+              .foregroundColor(.white)
+          }
       }
       
       HStack {

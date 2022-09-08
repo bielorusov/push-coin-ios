@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SecureTextField: View {
+struct EyeSecureField: View {
   let l: String
   @State private var isSecured: Bool = true
   @Binding var text: String
@@ -16,14 +16,23 @@ struct SecureTextField: View {
     HStack{
       if isSecured {
         SecureField(l, text: $text)
+          .textFieldStyle(CapsuleFieldStyle())
       } else {
-        TextField(text, text: $text)
+        TextField(l, text: $text)
+          .textFieldStyle(CapsuleFieldStyle())
       }
     }.overlay(alignment: .trailing) {
       Image(systemName: isSecured ? "eye.slash" : "eye")
         .onTapGesture {
           isSecured.toggle()
-        }
+        }.offset(x: -Geometry.Size.padding, y: 0)
     }
+  }
+}
+
+
+struct EyeSecureFieldView_Previews: PreviewProvider {
+  static var previews: some View {
+    EyeSecureField(l: "Some Text", text: .constant("Some Text"))
   }
 }

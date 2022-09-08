@@ -12,6 +12,10 @@ extension Color {
     static let shape = Color(0xD9D9D9)
   }
   
+  enum Form {
+    static let input = Color(0xF8F8F8)
+  }
+  
   enum Button {
     static let facebook = Color(0x4078FF)
     static let google = Color(0xDB4A39)

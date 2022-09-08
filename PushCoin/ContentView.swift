@@ -14,7 +14,6 @@ struct ContentView: View {
     VStack {
       RootView()
         .environmentObject(store)
-
     }
   }
 }
