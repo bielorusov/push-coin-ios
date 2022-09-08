@@ -21,6 +21,8 @@ extension Color {
     static let google = Color(0xDB4A39)
     static let apple = Color(0x000000)
     static let gray = Color(0xD9D9D9)
+    static let blue = Color(0x4078FF)
+    static let text = Color(0xFFFFFF)
   }
 }
 

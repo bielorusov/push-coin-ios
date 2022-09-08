@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SocialPlateView: View {
-  private var fullSize: Bool
+  let fullSize: Bool
   
   init(fullSize: Bool = true) {
     self.fullSize = fullSize
@@ -18,7 +18,7 @@ struct SocialPlateView: View {
     let iconWidth: CGFloat = fullSize ? 91 : 58
     let iconHeight: CGFloat = fullSize ? 36 : 28
     
-    return HStack(spacing: 0) {
+    HStack(spacing: 0) {
       Button(action: {
         print("Facebook submit!")
       }){

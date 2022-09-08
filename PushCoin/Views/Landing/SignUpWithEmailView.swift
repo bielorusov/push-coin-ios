@@ -35,25 +35,14 @@ struct SignUpWithEmailView: View {
         .padding(.top, Geometry.Size.padding)
         .focused($focusedField, equals: .password)
       
-      Text("The password must contain letters and numbers and be at least 6 characters long.")
-        .opacity(0.5)
-        .font(Font.App.subheadline)
-        .frame(width: 335)
-        .padding(.top, Geometry.Size.padding)
+      Text("The password must contain letters and numbers and be at least 6 characters long.").subheadlineStyle()
       
       Button(action: {
+        hideKeyboard()
         print("Sign UP Pressed!")
       }){
-        Capsule()
-          .fill(Color.Button.gray)
-          .frame(
-            width: Geometry.Size.buttonWidth,
-            height: Geometry.Size.buttonHeight
-          ).overlay {
-            Text("I’ll use email or phone")
-              .font(Font.App.buttonText)
-              .foregroundColor(.black)
-          }
+        Text("Sign Up")
+          .capsuleButtonPrimaryStyle()
       }.padding(.top, Geometry.Size.padding)
       
       SocialPlateView(fullSize: false)

@@ -9,12 +9,15 @@ import SwiftUI
 
 struct LandingView: View {
   var body: some View {
-    SignUpView()
+//    SignUpView()
+    SignUpWithEmailView()
   }
 }
 
 struct LandingView_Previews: PreviewProvider {
   static var previews: some View {
-    LandingView()
+    ZStack {
+      LandingView()
+    }
   }
 }

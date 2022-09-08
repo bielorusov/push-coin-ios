@@ -30,16 +30,8 @@ struct SignUpView: View {
       Button(action: {
         print("Sign In With Email Pressed!")
       }){
-        Capsule()
-          .fill(Color.Button.facebook)
-          .frame(
-            width: Geometry.Size.buttonWidth,
-            height: Geometry.Size.buttonHeight
-          ).overlay {
-            Text("I’ll use email or phone")
-              .font(Font.App.plain)
-              .foregroundColor(.white)
-          }
+        Text("I’ll use email or phone")
+          .capsuleButtonPrimaryStyle()
       }
       
       HStack {
