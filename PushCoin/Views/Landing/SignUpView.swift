@@ -51,8 +51,9 @@ struct SignUpView: View {
           Text("Sign in")
             .font(Font.App.plain)
         }
-      }.padding([.top, .bottom], Geometry.Size.padding)
+      }.padding(.top, Geometry.Size.padding)
     }
+    .padding(.bottom, Geometry.Size.padding)
   }
 }
 

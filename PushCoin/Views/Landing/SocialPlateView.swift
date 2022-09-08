@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct SocialPlateView: View {
+  private var fullSize: Bool
+  
+  init(fullSize: Bool = true) {
+    self.fullSize = fullSize
+  }
+  
   var body: some View {
-    HStack(spacing: 0) {
+    let iconWidth: CGFloat = fullSize ? 91 : 58
+    let iconHeight: CGFloat = fullSize ? 36 : 28
+    
+    return HStack(spacing: 0) {
       Button(action: {
         print("Facebook submit!")
       }){
         RoundedRectangle(cornerRadius: 15, style: .continuous)
           .fill(Color.Button.facebook)
-          .frame(width: 91, height: 58)
+          .frame(width: iconWidth, height: 58)
           .overlay {
             Image("FB_icon")
-              .frame(width: 36, height: 36, alignment: .center)
+              .frame(width: iconHeight, height: iconHeight, alignment: .center)
           }
       }.padding(.trailing, Geometry.Size.padding)
       
@@ -27,10 +36,10 @@ struct SocialPlateView: View {
       }){
         RoundedRectangle(cornerRadius: 15, style: .continuous)
           .fill(Color.Button.google)
-          .frame(width: 91, height: 58)
+          .frame(width: iconWidth, height: 58)
           .overlay {
             Image("Google_icon")
-              .frame(width: 36, height: 36, alignment: .center)
+              .frame(width: iconHeight, height: iconHeight, alignment: .center)
           }
       }.padding(.trailing, Geometry.Size.padding)
             
@@ -39,10 +48,10 @@ struct SocialPlateView: View {
       }){
         RoundedRectangle(cornerRadius: 15, style: .continuous)
           .fill(Color.Button.apple)
-          .frame(width: 91, height: 58)
+          .frame(width: iconWidth, height: 58)
           .overlay {
             Image("Apple_icon")
-              .frame(width: 36, height: 36, alignment: .center)
+              .frame(width: iconHeight, height: iconHeight, alignment: .center)
           }
       }
     }

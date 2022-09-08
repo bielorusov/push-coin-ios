@@ -20,6 +20,7 @@ extension Color {
     static let facebook = Color(0x4078FF)
     static let google = Color(0xDB4A39)
     static let apple = Color(0x000000)
+    static let gray = Color(0xD9D9D9)
   }
 }
 
