@@ -40,8 +40,10 @@ struct SignInWithEmailView: View {
         Text("Sign In")
           .capsuleButtonPrimaryStyle()
       }
+      .disabled(!formCompleted())
+      .opacity(formCompleted() ? 1 : 0.4)
       
-      SocialPlateView(fullSize: false)      
+      SocialPlateView(fullSize: false)
     }
     .padding(.bottom, Geometry.Size.doublePadding)
     .onAppear {
@@ -49,6 +51,10 @@ struct SignInWithEmailView: View {
         focusedField = .email
       }
     }
+  }
+  
+  func formCompleted() -> Bool {
+    return !email.isEmpty && !password.isEmpty
   }
 }
 

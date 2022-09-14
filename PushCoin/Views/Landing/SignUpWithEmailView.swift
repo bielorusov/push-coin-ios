@@ -34,7 +34,7 @@ struct SignUpWithEmailView: View {
         .focused($focusedField, equals: .password)
       
       Text("The password must contain letters and numbers and be at least 6 characters long.").subheadlineStyle()
-        .multilineTextAlignment(.leading)              
+        .multilineTextAlignment(.leading)
       
       Button(action: {
         hideKeyboard()
@@ -43,6 +43,8 @@ struct SignUpWithEmailView: View {
         Text("Sign Up")
           .capsuleButtonPrimaryStyle()
       }
+      .disabled(!formCompleted())
+      .opacity(formCompleted() ? 1 : 0.4)
       
       SocialPlateView(fullSize: false)
     }
@@ -52,6 +54,10 @@ struct SignUpWithEmailView: View {
         focusedField = .email
       }
     }
+  }
+  
+  func formCompleted() -> Bool {
+    return !email.isEmpty && !password.isEmpty
   }
 }
 
