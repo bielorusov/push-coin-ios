@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
   var body: some View {
-    VStack(spacing: 0) {
+    VStack(spacing: Geometry.Size.padding) {
       Circle()
         .fill(Color.App.shape)
         .frame(width: 166, height: 166)
@@ -19,13 +19,11 @@ struct SignUpView: View {
       
       Text("Sign up with")
         .font(Font.App.plain)
-        .padding([.top, .bottom], Geometry.Size.padding)
       
       SocialPlateView()
       
       LabelledDivider(label: "or")
         .frame(width: Geometry.Size.formWidth)
-        .padding([.top, .bottom], Geometry.Size.padding)
       
       Button(action: {
         print("Sign In With Email Pressed!")
@@ -43,9 +41,9 @@ struct SignUpView: View {
           Text("Sign in")
             .font(Font.App.plain)
         }
-      }.padding(.top, Geometry.Size.padding)
+      }
     }
-    .padding(.bottom, Geometry.Size.doublePadding)
+//    .padding(.bottom, Geometry.Size.doublePadding)
   }
 }
 

@@ -18,7 +18,7 @@ struct SocialPlateView: View {
     let iconWidth: CGFloat = fullSize ? 91 : 58
     let iconHeight: CGFloat = fullSize ? 36 : 28
     
-    HStack(spacing: 0) {
+    HStack(spacing: Geometry.Size.padding) {
       Button(action: {
         print("Facebook submit!")
       }){
@@ -29,7 +29,7 @@ struct SocialPlateView: View {
             Image("FB_icon")
               .frame(width: iconHeight, height: iconHeight, alignment: .center)
           }
-      }.padding(.trailing, Geometry.Size.padding)
+      }
       
       Button(action: {
         print("Google submit!")
@@ -41,7 +41,7 @@ struct SocialPlateView: View {
             Image("Google_icon")
               .frame(width: iconHeight, height: iconHeight, alignment: .center)
           }
-      }.padding(.trailing, Geometry.Size.padding)
+      }
             
       Button(action: {
         print("Apple submit!")

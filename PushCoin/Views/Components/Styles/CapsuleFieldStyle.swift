@@ -26,7 +26,7 @@ extension Text {
     self.opacity(0.5)
         .font(Font.App.subheadline)
         .frame(width: Geometry.Size.inputFieldWidth)
-        .padding(.top, Geometry.Size.padding)
+//        .padding(.top, Geometry.Size.padding)
   }
   
   func capsuleButtonPrimaryStyle() -> some View {

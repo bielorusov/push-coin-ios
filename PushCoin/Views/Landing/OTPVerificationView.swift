@@ -126,8 +126,7 @@ struct OTPVerificationView: View {
       case 4: return .field5
       default: return .field6
     }
-  }
-  
+  }  
 }
 
 struct OTPVerificationView_Previews: PreviewProvider {

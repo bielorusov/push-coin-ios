@@ -13,7 +13,7 @@ struct EyeSecureField: View {
   @Binding var text: String
   
   var body: some View {
-    HStack{
+    HStack(spacing: 0){
       if isSecured {
         SecureField(l, text: $text)
           .textFieldStyle(CapsuleFieldStyle())

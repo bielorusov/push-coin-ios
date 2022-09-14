@@ -19,12 +19,11 @@ struct SignInWithEmailView: View {
   @FocusState private var focusedField: FormFocusable?
   
   var body: some View {
-    VStack(spacing: 0) {
+    VStack(spacing: Geometry.Size.padding) {
       Spacer()
       
       Text("Sign In")
         .font(Font.App.plain)
-        .padding([.top, .bottom], Geometry.Size.padding)
       
       TextField("Email", text: $email)
         .keyboardType(.emailAddress)
@@ -32,7 +31,6 @@ struct SignInWithEmailView: View {
         .focused($focusedField, equals: .email)
       
       EyeSecureField(l: "Password", text: $password)
-        .padding(.top, Geometry.Size.padding)
         .focused($focusedField, equals: .password)
       
       Button(action: {
@@ -41,11 +39,9 @@ struct SignInWithEmailView: View {
       }){
         Text("Sign In")
           .capsuleButtonPrimaryStyle()
-      }.padding(.top, Geometry.Size.padding)
+      }
       
-      SocialPlateView(fullSize: false)
-        .padding(.top, Geometry.Size.padding)
-      
+      SocialPlateView(fullSize: false)      
     }
     .padding(.bottom, Geometry.Size.doublePadding)
     .onAppear {
