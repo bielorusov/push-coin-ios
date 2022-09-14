@@ -65,7 +65,7 @@ struct OTPVerificationView: View {
     }
   }
   
-  // MARK:
+  // MARK: disable, enable button state
   func checkStates() -> Bool {
     for index in 0..<6 {
       if otpModel.otpFields[index].isEmpty { return true }
