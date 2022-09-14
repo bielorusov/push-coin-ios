@@ -1,13 +1,13 @@
 //
-//  SignUpWithEmailView.swift
+//  SignInWithEmailView.swift
 //  PushCoin
 //
-//  Created by Dmitriy Belorusov on 9/8/22.
+//  Created by Dmitriy Belorusov on 9/12/22.
 //
 
 import SwiftUI
 
-struct SignUpWithEmailView: View {
+struct SignInWithEmailView: View {
   @State private var email = ""
   @State private var password = ""
   
@@ -22,7 +22,7 @@ struct SignUpWithEmailView: View {
     VStack(spacing: 0) {
       Spacer()
       
-      Text("Sign up with Email")
+      Text("Sign In")
         .font(Font.App.plain)
         .padding([.top, .bottom], Geometry.Size.padding)
       
@@ -35,13 +35,11 @@ struct SignUpWithEmailView: View {
         .padding(.top, Geometry.Size.padding)
         .focused($focusedField, equals: .password)
       
-      Text("The password must contain letters and numbers and be at least 6 characters long.").subheadlineStyle()
-      
       Button(action: {
         hideKeyboard()
-        print("Sign UP Pressed!")
+        print("Sign In Pressed!")
       }){
-        Text("Sign Up")
+        Text("Sign In")
           .capsuleButtonPrimaryStyle()
       }.padding(.top, Geometry.Size.padding)
       
@@ -58,10 +56,10 @@ struct SignUpWithEmailView: View {
   }
 }
 
-struct SignUpWithEmailView_Previews: PreviewProvider {
+struct SignInWithEmailView_Previews: PreviewProvider {
   static var previews: some View {
     ZStack {
-      SignUpWithEmailView()
-    }      
+      SignInWithEmailView()
+    }
   }
 }

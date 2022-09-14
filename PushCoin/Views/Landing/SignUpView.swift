@@ -45,7 +45,7 @@ struct SignUpView: View {
         }
       }.padding(.top, Geometry.Size.padding)
     }
-    .padding(.bottom, Geometry.Size.padding)
+    .padding(.bottom, Geometry.Size.doublePadding)
   }
 }
 
