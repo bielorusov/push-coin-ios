@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+// MARK: FocusState enum
+enum OTPField {
+  case field1
+  case field2
+  case field3
+  case field4
+}
+
 struct OTPVerificationView: View {
   @StateObject var otpModel: OTPViewModel = .init()
   @StateObject private var countDownViewModel = CountDownViewModel()
@@ -18,10 +26,10 @@ struct OTPVerificationView: View {
   
   var body: some View {
     VStack(spacing: Geometry.Size.padding) {
-        Text("A 4-digit code has been sent to your email confirmation.")
+      Text("A 4-digit code has been sent to your email confirmation.")
         .font(Font.App.headMedium)
         .frame(width: Geometry.Size.formWidth)
-        
+      
       OTPField()
       
       Text("Request a new verification code in \(countDownViewModel.time)").subheadlineStyle()
@@ -36,7 +44,7 @@ struct OTPVerificationView: View {
       }
       .disabled(checkStates())
       .opacity(checkStates() ? 0.4 : 1)
-            
+      
       HStack {
         Text("Don't get code?")
           .font(Font.App.subheadline)
@@ -92,7 +100,6 @@ struct OTPVerificationView: View {
         return
       }
     }
-  
     
     // Moving next field if current field type
     for index in 0..<3 {
@@ -123,18 +130,18 @@ struct OTPVerificationView: View {
         RoundedRectangle(cornerRadius: 10, style: .continuous)
           .strokeBorder(activeField == activeStateForIndex(index: index) ? .blue : .gray.opacity(0.3), lineWidth: 1)
           .frame(width: 50,height: 52, alignment: .center)
-        .overlay {
-          TextField("X", text: $otpModel.otpFields[index])
-            .focused($activeField, equals: activeStateForIndex(index: index))
-            .lineLimit(1)
-            .multilineTextAlignment(.center)
-            .keyboardType(.numberPad)
-            .font(Font.App.inputMedium)
-        }
+          .overlay {
+            TextField("X", text: $otpModel.otpFields[index])
+              .focused($activeField, equals: activeStateForIndex(index: index))
+              .lineLimit(1)
+              .multilineTextAlignment(.center)
+              .keyboardType(.numberPad)
+              .font(Font.App.inputMedium)
+          }
       }
     }
   }
-    
+  
   // MARK: Resurn Enum value by Index
   func activeStateForIndex(index: Int)->OTPField {
     switch index {
@@ -143,15 +150,7 @@ struct OTPVerificationView: View {
       case 2: return .field3
       default: return .field4
     }
-  }  
-}
-
-// MARK: FocusState enum
-enum OTPField {
-  case field1
-  case field2
-  case field3
-  case field4
+  }
 }
 
 struct OTPVerificationView_Previews: PreviewProvider {
