@@ -16,6 +16,8 @@ enum OTPField {
 }
 
 struct OTPVerificationView: View {
+  @EnvironmentObject var store: AppStore
+  
   @StateObject var otpVM: OTPViewModel = .init()
   @StateObject private var countDownVM = CountDownViewModel()
   let resendDelay: Float = 1 // Resend delay in minutes
@@ -40,6 +42,9 @@ struct OTPVerificationView: View {
       Button(action: {
         hideKeyboard()
         print("Vefiry OTP button pressed")
+        // TODO: Will be use existing email on SignUp step
+        self.store.dispatch(AuthAction.confirmEmailOTP(email: "", otpCode: otpVM.otpCode))
+        self.store.dispatch(PageAction.goTo(.home))
       }){
         Text("Verify")
           .capsuleButtonPrimaryStyle()

@@ -34,15 +34,18 @@ struct AuthReducer: ReduxReducer {
   }
   
   private func signUpWithEmail(for state: AuthState, email: String, password: String) -> AuthState {
-    AuthState(isLoggedIn: true)
+    print("EMAIL: \(email), PSW: \(password)")
+    return AuthState(isLoggedIn: true)
   }
   
   private func confirmEmailOTP(for state: AuthState, email: String, otpCode: String) -> AuthState {
-    AuthState(isLoggedIn: true)
+    print("EMAIL: \(email), OTP: \(otpCode)")
+    return  AuthState(isLoggedIn: true)
   }
   
   private func signInWithEmail(for state: AuthState, email: String, password: String) -> AuthState {
-    AuthState(isLoggedIn: true)
+    print("EMAIL: \(email), PSW: \(password)")
+    return AuthState(isLoggedIn: true)
   }
   
   private func signInWithFacebook(for state: AuthState) -> AuthState {

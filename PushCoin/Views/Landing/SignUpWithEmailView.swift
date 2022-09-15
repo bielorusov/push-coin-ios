@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignUpWithEmailView: View {
+  @EnvironmentObject var store: AppStore
+  
   @State private var email = ""
   @State private var password = ""
   
@@ -26,11 +28,13 @@ struct SignUpWithEmailView: View {
         .font(Font.App.plain)
       
       TextField("Email", text: $email)
+        .textInputAutocapitalization(.never)
         .keyboardType(.emailAddress)
         .textFieldStyle(CapsuleFieldStyle())
         .focused($focusedField, equals: .email)
       
       EyeSecureField(l: "Password", text: $password)
+        .textInputAutocapitalization(.never)
         .focused($focusedField, equals: .password)
       
       Text("The password must contain letters and numbers and be at least 6 characters long.")
@@ -42,6 +46,9 @@ struct SignUpWithEmailView: View {
       Button(action: {
         hideKeyboard()
         print("Sign UP Pressed!")
+        // TODO: Should be resolved inside action
+//        self.store.dispatch(AuthAction.signUpWithEmail(email: email, password: password))
+        self.store.dispatch(PageAction.goTo(.otpVerification))
       }){
         Text("Sign Up")
           .capsuleButtonPrimaryStyle()

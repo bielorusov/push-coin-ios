@@ -24,6 +24,7 @@ struct SocialPlateView: View {
       Button(action: {
         print("Facebook submit!")
         self.store.dispatch(AuthAction.signInWithFacebook)
+        self.store.dispatch(PageAction.goTo(.home))
       }){
         RoundedRectangle(cornerRadius: 15, style: .continuous)
           .fill(Color.Button.facebook)
@@ -37,6 +38,7 @@ struct SocialPlateView: View {
       Button(action: {
         print("Google submit!")
         self.store.dispatch(AuthAction.signInWithGoogle)
+        self.store.dispatch(PageAction.goTo(.home))
       }){
         RoundedRectangle(cornerRadius: 15, style: .continuous)
           .fill(Color.Button.google)
@@ -50,6 +52,7 @@ struct SocialPlateView: View {
       Button(action: {
         print("Apple submit!")
         self.store.dispatch(AuthAction.signInWithApple)
+        self.store.dispatch(PageAction.goTo(.home))
       }){
         RoundedRectangle(cornerRadius: 15, style: .continuous)
           .fill(Color.Button.apple)

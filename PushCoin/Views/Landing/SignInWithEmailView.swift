@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignInWithEmailView: View {
+  @EnvironmentObject var store: AppStore
+  
   @State private var email = ""
   @State private var password = ""
   
@@ -26,16 +28,20 @@ struct SignInWithEmailView: View {
         .font(Font.App.plain)
       
       TextField("Email", text: $email)
+        .textInputAutocapitalization(.never)
         .keyboardType(.emailAddress)
         .textFieldStyle(CapsuleFieldStyle())
         .focused($focusedField, equals: .email)
       
       EyeSecureField(l: "Password", text: $password)
+        .textInputAutocapitalization(.never)
         .focused($focusedField, equals: .password)
       
       Button(action: {
         hideKeyboard()
         print("Sign In Pressed!")
+        self.store.dispatch(AuthAction.signInWithEmail(email: email, password: password))
+        self.store.dispatch(PageAction.goTo(.home))
       }){
         Text("Sign In")
           .capsuleButtonPrimaryStyle()
