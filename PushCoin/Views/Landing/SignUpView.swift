@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignUpView: View {
+  @EnvironmentObject var store: AppStore
+  
   var body: some View {
     VStack(spacing: Geometry.Size.padding) {
       Circle()
@@ -26,7 +28,8 @@ struct SignUpView: View {
         .frame(width: Geometry.Size.formWidth)
       
       Button(action: {
-        print("Sign In With Email Pressed!")
+        print("Sign Up With Email Pressed!")
+        self.store.dispatch(PageAction.goTo(.signUpWithEmail))
       }){
         Text("I’ll use email or phone")
           .capsuleButtonPrimaryStyle()
@@ -37,13 +40,14 @@ struct SignUpView: View {
           .font(Font.App.plain)
         Button(action: {
           print("Sign In link pressed")
+          self.store.dispatch(PageAction.goTo(.signInWithEmail))
         }) {
           Text("Sign in")
             .font(Font.App.plain)
         }
       }
     }
-//    .padding(.bottom, Geometry.Size.doublePadding)
+    .padding(.bottom, Geometry.Size.doublePadding)
   }
 }
 

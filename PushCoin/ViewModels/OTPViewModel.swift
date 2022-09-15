@@ -10,5 +10,9 @@ import SwiftUI
 class OTPViewModel: ObservableObject {
   @Published var otpText: String = ""
   @Published var otpFields: [String] = Array(repeating: "", count: 4)
+  
+  public var otpCode: String {
+    return otpFields.joined()
+  }
 }
 

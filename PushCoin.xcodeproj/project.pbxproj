@@ -10,12 +10,14 @@
 		1F061B2D28D0DDB3006C6D1E /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B2C28D0DDB3006C6D1E /* OTPViewModel.swift */; };
 		1F061B2F28D0DE7D006C6D1E /* OTPVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B2E28D0DE7D006C6D1E /* OTPVerificationView.swift */; };
 		1F061B3128D3412B006C6D1E /* CountDownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3028D3412A006C6D1E /* CountDownViewModel.swift */; };
+		1F061B3328D3C029006C6D1E /* AuthAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3228D3C029006C6D1E /* AuthAction.swift */; };
+		1F061B3528D3C12F006C6D1E /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3428D3C12F006C6D1E /* AuthState.swift */; };
+		1F061B3728D3C202006C6D1E /* AuthReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3628D3C202006C6D1E /* AuthReducer.swift */; };
 		1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */; };
 		1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7328C229BC00C65950 /* ContentView.swift */; };
 		1F8E0E7628C229BD00C65950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7528C229BD00C65950 /* Assets.xcassets */; };
 		1F8E0E7928C229BD00C65950 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7828C229BD00C65950 /* Preview Assets.xcassets */; };
 		1F8E0E8228C2380600C65950 /* HoleTapBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */; };
-		1F8E0E8428C2B67400C65950 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E8328C2B67400C65950 /* ViewRouter.swift */; };
 		1F8E0E8628C2B9E100C65950 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E8528C2B9E100C65950 /* MainView.swift */; };
 		1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E8728C2C2E800C65950 /* LandingView.swift */; };
 		1F8E0E8F28C5200400C65950 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E8E28C5200400C65950 /* Store.swift */; };
@@ -41,14 +43,15 @@
 		1FDA231D28CA4A4A00B2BD5B /* EyeSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA231C28CA4A4900B2BD5B /* EyeSecureField.swift */; };
 		1FDA232228CA85B200B2BD5B /* CapsuleFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA232128CA85B200B2BD5B /* CapsuleFieldStyle.swift */; };
 		1FDA232628CF44D400B2BD5B /* SignInWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA232528CF44D300B2BD5B /* SignInWithEmailView.swift */; };
-		1FDA232828CF692600B2BD5B /* FourDigitsFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA232728CF692500B2BD5B /* FourDigitsFieldView.swift */; };
-		1FDA232D28CF799500B2BD5B /* FourDigitsCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA232C28CF799500B2BD5B /* FourDigitsCodeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F061B2C28D0DDB3006C6D1E /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		1F061B2E28D0DE7D006C6D1E /* OTPVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationView.swift; sourceTree = "<group>"; };
 		1F061B3028D3412A006C6D1E /* CountDownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownViewModel.swift; sourceTree = "<group>"; };
+		1F061B3228D3C029006C6D1E /* AuthAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAction.swift; sourceTree = "<group>"; };
+		1F061B3428D3C12F006C6D1E /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
+		1F061B3628D3C202006C6D1E /* AuthReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReducer.swift; sourceTree = "<group>"; };
 		1F8E0E6E28C229BC00C65950 /* PushCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCoinApp.swift; sourceTree = "<group>"; };
 		1F8E0E7328C229BC00C65950 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,7 +59,6 @@
 		1F8E0E7828C229BD00C65950 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1F8E0E7F28C22B3700C65950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleTapBarView.swift; sourceTree = "<group>"; };
-		1F8E0E8328C2B67400C65950 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		1F8E0E8528C2B9E100C65950 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1F8E0E8728C2C2E800C65950 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		1F8E0E8E28C5200400C65950 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -82,8 +84,6 @@
 		1FDA231C28CA4A4900B2BD5B /* EyeSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeSecureField.swift; sourceTree = "<group>"; };
 		1FDA232128CA85B200B2BD5B /* CapsuleFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleFieldStyle.swift; sourceTree = "<group>"; };
 		1FDA232528CF44D300B2BD5B /* SignInWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailView.swift; sourceTree = "<group>"; };
-		1FDA232728CF692500B2BD5B /* FourDigitsFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourDigitsFieldView.swift; sourceTree = "<group>"; };
-		1FDA232C28CF799500B2BD5B /* FourDigitsCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourDigitsCodeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,6 @@
 			children = (
 				1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */,
 				1F8E0E7328C229BC00C65950 /* ContentView.swift */,
-				1F8E0E8328C2B67400C65950 /* ViewRouter.swift */,
 				1F061B2B28D0DD8F006C6D1E /* ViewModels */,
 				1F8E0E8028C237E900C65950 /* Views */,
 				1F8E0E8928C51F7400C65950 /* Redux */,
@@ -178,6 +177,7 @@
 			children = (
 				1F8E0E9628C520DE00C65950 /* CounterAction.swift */,
 				1FDA22F928C8A71B00B2BD5B /* PageAction.swift */,
+				1F061B3228D3C029006C6D1E /* AuthAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -188,6 +188,7 @@
 				1F8E0E9228C5206900C65950 /* AppState.swift */,
 				1F8E0E9028C5204500C65950 /* CounterState.swift */,
 				1FDA22FB28C8A78000B2BD5B /* PageState.swift */,
+				1F061B3428D3C12F006C6D1E /* AuthState.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -198,6 +199,7 @@
 				1F8E0E9428C5208000C65950 /* RootReducer.swift */,
 				1F8E0E9828C520FA00C65950 /* CounterReducer.swift */,
 				1FDA22FD28C8A81400B2BD5B /* PageReducer.swift */,
+				1F061B3628D3C202006C6D1E /* AuthReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -254,7 +256,6 @@
 				1FDA232028CA859B00B2BD5B /* Styles */,
 				1FDA230D28CA1F7800B2BD5B /* LabelledDividerView.swift */,
 				1FDA231C28CA4A4900B2BD5B /* EyeSecureField.swift */,
-				1FDA232728CF692500B2BD5B /* FourDigitsFieldView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -280,7 +281,6 @@
 		1FDA232B28CF797100B2BD5B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1FDA232C28CF799500B2BD5B /* FourDigitsCodeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -359,11 +359,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FDA232D28CF799500B2BD5B /* FourDigitsCodeModel.swift in Sources */,
 				1FDA230028CA088E00B2BD5B /* SocialPlateView.swift in Sources */,
 				1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */,
+				1F061B3728D3C202006C6D1E /* AuthReducer.swift in Sources */,
 				1FDA22FE28C8A81400B2BD5B /* PageReducer.swift in Sources */,
 				1F061B2F28D0DE7D006C6D1E /* OTPVerificationView.swift in Sources */,
+				1F061B3528D3C12F006C6D1E /* AuthState.swift in Sources */,
 				1F8E0E9528C5208000C65950 /* RootReducer.swift in Sources */,
 				1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */,
 				1FDA232628CF44D400B2BD5B /* SignInWithEmailView.swift in Sources */,
@@ -378,7 +379,6 @@
 				1FDA231328CA2C1B00B2BD5B /* Font.swift in Sources */,
 				1FDA231528CA329700B2BD5B /* Geometry.swift in Sources */,
 				1FDA231B28CA412A00B2BD5B /* SignUpWithEmailView.swift in Sources */,
-				1FDA232828CF692600B2BD5B /* FourDigitsFieldView.swift in Sources */,
 				1F061B3128D3412B006C6D1E /* CountDownViewModel.swift in Sources */,
 				1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */,
 				1FDA232228CA85B200B2BD5B /* CapsuleFieldStyle.swift in Sources */,
@@ -388,10 +388,10 @@
 				1FDA231D28CA4A4A00B2BD5B /* EyeSecureField.swift in Sources */,
 				1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */,
 				1F061B2D28D0DDB3006C6D1E /* OTPViewModel.swift in Sources */,
+				1F061B3328D3C029006C6D1E /* AuthAction.swift in Sources */,
 				1FDA230E28CA1F7800B2BD5B /* LabelledDividerView.swift in Sources */,
 				1F8E0E8228C2380600C65950 /* HoleTapBarView.swift in Sources */,
 				1F8E0E8628C2B9E100C65950 /* MainView.swift in Sources */,
-				1F8E0E8428C2B67400C65950 /* ViewRouter.swift in Sources */,
 				1FDA230B28CA1A4500B2BD5B /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

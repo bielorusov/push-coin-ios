@@ -33,8 +33,11 @@ struct SignUpWithEmailView: View {
       EyeSecureField(l: "Password", text: $password)
         .focused($focusedField, equals: .password)
       
-      Text("The password must contain letters and numbers and be at least 6 characters long.").subheadlineStyle()
-        .multilineTextAlignment(.leading)
+      Text("The password must contain letters and numbers and be at least 6 characters long.")
+        .opacity(0.5)
+        .font(Font.App.subheadline)
+        .frame(maxWidth: Geometry.Size.formWidth)
+        .fixedSize(horizontal: false, vertical: true)
       
       Button(action: {
         hideKeyboard()

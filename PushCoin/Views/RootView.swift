@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct RootView: View {
+  @EnvironmentObject var store: AppStore
   
   var body: some View {
-    MainView()
+    if store.state.authState.isLoggedIn {
+      MainView()
+    } else {
+      LandingView()
+    }
   }
 }
 

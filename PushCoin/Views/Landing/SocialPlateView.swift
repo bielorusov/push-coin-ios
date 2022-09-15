@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SocialPlateView: View {
+  @EnvironmentObject var store: AppStore
+  
   let fullSize: Bool
   
   init(fullSize: Bool = true) {
@@ -21,6 +23,7 @@ struct SocialPlateView: View {
     HStack(spacing: Geometry.Size.padding) {
       Button(action: {
         print("Facebook submit!")
+        self.store.dispatch(AuthAction.signInWithFacebook)
       }){
         RoundedRectangle(cornerRadius: 15, style: .continuous)
           .fill(Color.Button.facebook)
@@ -33,6 +36,7 @@ struct SocialPlateView: View {
       
       Button(action: {
         print("Google submit!")
+        self.store.dispatch(AuthAction.signInWithGoogle)
       }){
         RoundedRectangle(cornerRadius: 15, style: .continuous)
           .fill(Color.Button.google)
@@ -45,6 +49,7 @@ struct SocialPlateView: View {
             
       Button(action: {
         print("Apple submit!")
+        self.store.dispatch(AuthAction.signInWithApple)
       }){
         RoundedRectangle(cornerRadius: 15, style: .continuous)
           .fill(Color.Button.apple)

@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-//  @StateObject var viewRouter = ViewRouter()
-  
   @EnvironmentObject var store: AppStore
   
   var body: some View {
@@ -23,7 +21,12 @@ struct MainView: View {
         case .mapPin:
           Text("Map Pin")
         case .burger:
-          Text("Burger")
+          Button(action: {
+            self.store.dispatch(AuthAction.signOut)
+          }) {
+            Text("Log Out")
+          }
+        default: Text("Default Page")
       }
       Spacer()
       HoleTapBarView()

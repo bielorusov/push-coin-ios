@@ -16,9 +16,9 @@ enum OTPField {
 }
 
 struct OTPVerificationView: View {
-  @StateObject var otpModel: OTPViewModel = .init()
-  @StateObject private var countDownViewModel = CountDownViewModel()
-  let resendDelay: Float = 3 // Resend delay in minutes
+  @StateObject var otpVM: OTPViewModel = .init()
+  @StateObject private var countDownVM = CountDownViewModel()
+  let resendDelay: Float = 1 // Resend delay in minutes
   private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   
   //MARK: TextField FocusState
@@ -32,8 +32,10 @@ struct OTPVerificationView: View {
       
       OTPField()
       
-      Text("Request a new verification code in \(countDownViewModel.time)").subheadlineStyle()
-        .multilineTextAlignment(.leading)
+      Text("Request a new verification code in \(countDownVM.time)")
+        .opacity(0.5)
+        .font(Font.App.subheadline)
+        .frame(width: Geometry.Size.formWidth)
       
       Button(action: {
         hideKeyboard()
@@ -49,34 +51,34 @@ struct OTPVerificationView: View {
         Text("Don't get code?")
           .font(Font.App.subheadline)
         Button(action: {
-          countDownViewModel.start(minutes: resendDelay)
+          countDownVM.start(minutes: resendDelay)
         }) {
           Text("Resend code")
             .font(Font.App.subheadline)
         }
-        .disabled(countDownViewModel.isActive)
+        .disabled(countDownVM.isActive)
       }
       .frame(maxWidth: Geometry.Size.formWidth, alignment: .center)
       
     }
-    .onChange(of: otpModel.otpFields) { newValue in
+    .onChange(of: otpVM.otpFields) { newValue in
       OTPCondition(value: newValue)
     }
     .onAppear {
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
         activeField = .field1
-        countDownViewModel.start(minutes: resendDelay)
+        countDownVM.start(minutes: resendDelay)
       }
     }
     .onReceive(timer) { _ in
-      countDownViewModel.updateCountdown()
+      countDownVM.updateCountdown()
     }
   }
   
   // MARK: disable, enable button state
   func checkStates() -> Bool {
     for index in 0..<4 {
-      if otpModel.otpFields[index].isEmpty { return true }
+      if otpVM.otpFields[index].isEmpty { return true }
     }
     
     return false
@@ -88,12 +90,12 @@ struct OTPVerificationView: View {
     for index in 0..<3 {
       if value[index].count == 4 {
         DispatchQueue.main.async {
-          otpModel.otpText = value[index]
-          otpModel.otpFields[index] = ""
+          otpVM.otpText = value[index]
+          otpVM.otpFields[index] = ""
           
           // Updating all TextFields with Value
-          for item in otpModel.otpText.enumerated() {
-            otpModel.otpFields[item.offset] = String(item.element)
+          for item in otpVM.otpText.enumerated() {
+            otpVM.otpFields[item.offset] = String(item.element)
           }
         }
         
@@ -117,7 +119,7 @@ struct OTPVerificationView: View {
     
     for index in 0..<4{
       if value[index].count > 1 {
-        otpModel.otpFields[index] = String(value[index].last!)
+        otpVM.otpFields[index] = String(value[index].last!)
       }
     }
   }
@@ -131,7 +133,7 @@ struct OTPVerificationView: View {
           .strokeBorder(activeField == activeStateForIndex(index: index) ? .blue : .gray.opacity(0.3), lineWidth: 1)
           .frame(width: 50,height: 52, alignment: .center)
           .overlay {
-            TextField("X", text: $otpModel.otpFields[index])
+            TextField("X", text: $otpVM.otpFields[index])
               .focused($activeField, equals: activeStateForIndex(index: index))
               .lineLimit(1)
               .multilineTextAlignment(.center)

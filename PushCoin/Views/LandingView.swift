@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct LandingView: View {
+  @EnvironmentObject var store: AppStore
+  
   var body: some View {
-//    SignUpView()
-    SignUpWithEmailView()
+    switch store.state.pageState.currentPage {
+      case .signInWithEmail:
+        SignInWithEmailView()
+      case .signUpWithEmail:
+        SignUpWithEmailView()
+      case .otpVerification:
+        OTPVerificationView()
+      default: SignUpView()
+    }
   }
 }
 
