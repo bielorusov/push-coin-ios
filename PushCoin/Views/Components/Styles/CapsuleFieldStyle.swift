@@ -25,7 +25,7 @@ extension Text {
   func subheadlineStyle() -> some View {
     self.opacity(0.5)
         .font(Font.App.subheadline)
-        .frame(width: Geometry.Size.inputFieldWidth)
+//        .frame(width: Geometry.Size.inputFieldWidth)
 //        .padding(.top, Geometry.Size.padding)
   }
   

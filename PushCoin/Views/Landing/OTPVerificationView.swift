@@ -7,67 +7,67 @@
 
 import SwiftUI
 
-// MARK: FocusState enum
-enum OTPField {
-  case field1
-  case field2
-  case field3
-  case field4
-  case field5
-  case field6
-}
-
 struct OTPVerificationView: View {
   @StateObject var otpModel: OTPViewModel = .init()
+  @StateObject private var countDownViewModel = CountDownViewModel()
+  let resendDelay: Float = 3 // Resend delay in minutes
+  private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   
   //MARK: TextField FocusState
   @FocusState var activeField: OTPField?
   
   var body: some View {
-    NavigationView {
-      VStack {
-        OTPField()
-        Button(action: {}) {
-          Text("Verify")
-            .fontWeight(.semibold)
-            .foregroundColor(.white)
-            .padding(.vertical, 12)
-            .frame(maxWidth: .infinity)
-            .background {
-              RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill(.blue)
-            }
-        }
-        .disabled(checkStates())
-        .opacity(checkStates() ? 0.4 : 1)
-        .padding(.vertical)
+    VStack(spacing: Geometry.Size.padding) {
+        Text("A 4-digit code has been sent to your email confirmation.")
+        .font(Font.App.headMedium)
+        .frame(width: Geometry.Size.formWidth)
         
-        HStack(spacing: 12) {
-          Text("Don't get otp?")
-            .font(.caption)
-            .foregroundColor(.gray)
-          Button("Resend") {}
-          .font(.callout)
+      OTPField()
+      
+      Text("Request a new verification code in \(countDownViewModel.time)").subheadlineStyle()
+        .multilineTextAlignment(.leading)
+      
+      Button(action: {
+        hideKeyboard()
+        print("Vefiry OTP button pressed")
+      }){
+        Text("Verify")
+          .capsuleButtonPrimaryStyle()
+      }
+      .disabled(checkStates())
+      .opacity(checkStates() ? 0.4 : 1)
+            
+      HStack {
+        Text("Don't get code?")
+          .font(Font.App.subheadline)
+        Button(action: {
+          countDownViewModel.start(minutes: resendDelay)
+        }) {
+          Text("Resend code")
+            .font(Font.App.subheadline)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .disabled(countDownViewModel.isActive)
       }
-      .padding()
-      .frame(maxHeight: .infinity, alignment: .top)
-      .navigationTitle("Verification")
-      .onChange(of: otpModel.otpFields) { newValue in
-        OTPCondition(value: newValue)
-      }
+      .frame(maxWidth: Geometry.Size.formWidth, alignment: .center)
+      
+    }
+    .onChange(of: otpModel.otpFields) { newValue in
+      OTPCondition(value: newValue)
     }
     .onAppear {
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
         activeField = .field1
+        countDownViewModel.start(minutes: resendDelay)
       }
+    }
+    .onReceive(timer) { _ in
+      countDownViewModel.updateCountdown()
     }
   }
   
   // MARK: disable, enable button state
   func checkStates() -> Bool {
-    for index in 0..<6 {
+    for index in 0..<4 {
       if otpModel.otpFields[index].isEmpty { return true }
     }
     
@@ -76,21 +76,39 @@ struct OTPVerificationView: View {
   
   // MARK: Conditions for Custom OTP Field & Limiting Only one Text
   func OTPCondition(value: [String]){
+    // Checking if OTP is Pressed
+    for index in 0..<3 {
+      if value[index].count == 4 {
+        DispatchQueue.main.async {
+          otpModel.otpText = value[index]
+          otpModel.otpFields[index] = ""
+          
+          // Updating all TextFields with Value
+          for item in otpModel.otpText.enumerated() {
+            otpModel.otpFields[item.offset] = String(item.element)
+          }
+        }
+        
+        return
+      }
+    }
+  
+    
     // Moving next field if current field type
-    for index in 0..<5 {
+    for index in 0..<3 {
       if value[index].count == 1 && activeStateForIndex(index: index) == activeField {
         activeField = activeStateForIndex(index: index + 1)
       }
     }
     
     // Moving back if Current is Empty and  Previous is not Empty
-    for index in 1...5 {
+    for index in 1...3 {
       if value[index].isEmpty && !value[index - 1].isEmpty {
         activeField = activeStateForIndex(index: index - 1)
       }
     }
     
-    for index in 0..<6{
+    for index in 0..<4{
       if value[index].count > 1 {
         otpModel.otpFields[index] = String(value[index].last!)
       }
@@ -100,33 +118,40 @@ struct OTPVerificationView: View {
   //MARK: custom OTP textField
   @ViewBuilder
   func OTPField()->some View {
-    HStack(spacing: 14){
-      ForEach(0..<6, id: \.self) { index in
-        VStack(spacing: 8) {
-          TextField("", text: $otpModel.otpFields[index])
-            .keyboardType(.numberPad)
-            .textContentType(.oneTimeCode)
-            .multilineTextAlignment(.center)
+    HStack(spacing: Geometry.Size.padding){
+      ForEach(0..<4, id: \.self) { index in
+        RoundedRectangle(cornerRadius: 10, style: .continuous)
+          .strokeBorder(activeField == activeStateForIndex(index: index) ? .blue : .gray.opacity(0.3), lineWidth: 1)
+          .frame(width: 50,height: 52, alignment: .center)
+        .overlay {
+          TextField("X", text: $otpModel.otpFields[index])
             .focused($activeField, equals: activeStateForIndex(index: index))
-          Rectangle()
-            .fill(activeField == activeStateForIndex(index: index) ? .blue : .gray.opacity(0.3))
-            .frame(height: 4)
+            .lineLimit(1)
+            .multilineTextAlignment(.center)
+            .keyboardType(.numberPad)
+            .font(Font.App.inputMedium)
         }
-        .frame(width: 40)
       }
     }
   }
-  
+    
+  // MARK: Resurn Enum value by Index
   func activeStateForIndex(index: Int)->OTPField {
     switch index {
       case 0: return .field1
       case 1: return .field2
       case 2: return .field3
-      case 3: return .field4
-      case 4: return .field5
-      default: return .field6
+      default: return .field4
     }
   }  
+}
+
+// MARK: FocusState enum
+enum OTPField {
+  case field1
+  case field2
+  case field3
+  case field4
 }
 
 struct OTPVerificationView_Previews: PreviewProvider {

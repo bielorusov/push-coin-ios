@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F061B2D28D0DDB3006C6D1E /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B2C28D0DDB3006C6D1E /* OTPViewModel.swift */; };
 		1F061B2F28D0DE7D006C6D1E /* OTPVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B2E28D0DE7D006C6D1E /* OTPVerificationView.swift */; };
+		1F061B3128D3412B006C6D1E /* CountDownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3028D3412A006C6D1E /* CountDownViewModel.swift */; };
 		1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */; };
 		1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7328C229BC00C65950 /* ContentView.swift */; };
 		1F8E0E7628C229BD00C65950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7528C229BD00C65950 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		1F061B2C28D0DDB3006C6D1E /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		1F061B2E28D0DE7D006C6D1E /* OTPVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationView.swift; sourceTree = "<group>"; };
+		1F061B3028D3412A006C6D1E /* CountDownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownViewModel.swift; sourceTree = "<group>"; };
 		1F8E0E6E28C229BC00C65950 /* PushCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCoinApp.swift; sourceTree = "<group>"; };
 		1F8E0E7328C229BC00C65950 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				1F061B2C28D0DDB3006C6D1E /* OTPViewModel.swift */,
+				1F061B3028D3412A006C6D1E /* CountDownViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				1FDA231528CA329700B2BD5B /* Geometry.swift in Sources */,
 				1FDA231B28CA412A00B2BD5B /* SignUpWithEmailView.swift in Sources */,
 				1FDA232828CF692600B2BD5B /* FourDigitsFieldView.swift in Sources */,
+				1F061B3128D3412B006C6D1E /* CountDownViewModel.swift in Sources */,
 				1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */,
 				1FDA232228CA85B200B2BD5B /* CapsuleFieldStyle.swift in Sources */,
 				1FDA231928CA3FC200B2BD5B /* SignUpView.swift in Sources */,

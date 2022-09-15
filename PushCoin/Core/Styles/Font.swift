@@ -16,6 +16,7 @@ extension Font {
     static let plain = appFont(size: 16).weight(.semibold)
     static let input = appFont(size: 16)
     static let inputMedium = appFont(size: 20)
+    static let headMedium = appFont(size: 18)
     static let buttonText = appFont(size: 16).weight(.bold)
     static let subheadline = appFont(size: 12)
     
