@@ -28,6 +28,11 @@
 		1F8E0E9528C5208000C65950 /* RootReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9428C5208000C65950 /* RootReducer.swift */; };
 		1F8E0E9728C520DE00C65950 /* CounterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9628C520DE00C65950 /* CounterAction.swift */; };
 		1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E9828C520FA00C65950 /* CounterReducer.swift */; };
+		1FAD2F2F28DA57FA003F84F1 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F2E28DA57FA003F84F1 /* SectionModel.swift */; };
+		1FAD2F3128DA599A003F84F1 /* HomeSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3028DA599A003F84F1 /* HomeSectionsView.swift */; };
+		1FAD2F3328DA5A15003F84F1 /* HomeSectionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3228DA5A15003F84F1 /* HomeSectionItemView.swift */; };
+		1FAD2F3528DA5A9D003F84F1 /* HomeSectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3428DA5A9D003F84F1 /* HomeSectionDetailView.swift */; };
+		1FAD2F3728DA5B5D003F84F1 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3628DA5B5D003F84F1 /* HomeContentView.swift */; };
 		1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB55C928C76304009E3E7E /* RootView.swift */; };
 		1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F528C77CD900B2BD5B /* Redux.swift */; };
 		1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F928C8A71B00B2BD5B /* PageAction.swift */; };
@@ -71,6 +76,11 @@
 		1F8E0E9428C5208000C65950 /* RootReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
 		1F8E0E9628C520DE00C65950 /* CounterAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterAction.swift; sourceTree = "<group>"; };
 		1F8E0E9828C520FA00C65950 /* CounterReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterReducer.swift; sourceTree = "<group>"; };
+		1FAD2F2E28DA57FA003F84F1 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		1FAD2F3028DA599A003F84F1 /* HomeSectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionsView.swift; sourceTree = "<group>"; };
+		1FAD2F3228DA5A15003F84F1 /* HomeSectionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionItemView.swift; sourceTree = "<group>"; };
+		1FAD2F3428DA5A9D003F84F1 /* HomeSectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionDetailView.swift; sourceTree = "<group>"; };
+		1FAD2F3628DA5B5D003F84F1 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
 		1FBB55C928C76304009E3E7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1FDA22F528C77CD900B2BD5B /* Redux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
 		1FDA22F928C8A71B00B2BD5B /* PageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAction.swift; sourceTree = "<group>"; };
@@ -216,9 +226,21 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		1FAD2F2D28DA1D99003F84F1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1FAD2F3028DA599A003F84F1 /* HomeSectionsView.swift */,
+				1FAD2F3228DA5A15003F84F1 /* HomeSectionItemView.swift */,
+				1FAD2F3428DA5A9D003F84F1 /* HomeSectionDetailView.swift */,
+				1FAD2F3628DA5B5D003F84F1 /* HomeContentView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		1FDA22F728C77D9200B2BD5B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1FAD2F2D28DA1D99003F84F1 /* Home */,
 				1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */,
 				1F061B3828D8D2A1006C6D1E /* HomePageView.swift */,
 			);
@@ -287,6 +309,7 @@
 		1FDA232B28CF797100B2BD5B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1FAD2F2E28DA57FA003F84F1 /* SectionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -367,19 +390,24 @@
 			files = (
 				1FDA230028CA088E00B2BD5B /* SocialPlateView.swift in Sources */,
 				1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */,
+				1FAD2F3528DA5A9D003F84F1 /* HomeSectionDetailView.swift in Sources */,
 				1F061B3728D3C202006C6D1E /* AuthReducer.swift in Sources */,
 				1FDA22FE28C8A81400B2BD5B /* PageReducer.swift in Sources */,
 				1F061B2F28D0DE7D006C6D1E /* OTPVerificationView.swift in Sources */,
 				1F061B3528D3C12F006C6D1E /* AuthState.swift in Sources */,
 				1F8E0E9528C5208000C65950 /* RootReducer.swift in Sources */,
 				1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */,
+				1FAD2F2F28DA57FA003F84F1 /* SectionModel.swift in Sources */,
 				1FDA232628CF44D400B2BD5B /* SignInWithEmailView.swift in Sources */,
+				1FAD2F3328DA5A15003F84F1 /* HomeSectionItemView.swift in Sources */,
 				1F8E0E9328C5206900C65950 /* AppState.swift in Sources */,
 				1FDA231728CA3D8900B2BD5B /* Core.swift in Sources */,
 				1F8E0E9128C5204500C65950 /* CounterState.swift in Sources */,
+				1FAD2F3128DA599A003F84F1 /* HomeSectionsView.swift in Sources */,
 				1F8E0E9728C520DE00C65950 /* CounterAction.swift in Sources */,
 				1F8E0E8F28C5200400C65950 /* Store.swift in Sources */,
 				1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */,
+				1FAD2F3728DA5B5D003F84F1 /* HomeContentView.swift in Sources */,
 				1FDA231128CA250600B2BD5B /* Color.swift in Sources */,
 				1FDA22FC28C8A78000B2BD5B /* PageState.swift in Sources */,
 				1FDA231328CA2C1B00B2BD5B /* Font.swift in Sources */,
