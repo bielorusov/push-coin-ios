@@ -13,6 +13,8 @@
 		1F061B3328D3C029006C6D1E /* AuthAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3228D3C029006C6D1E /* AuthAction.swift */; };
 		1F061B3528D3C12F006C6D1E /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3428D3C12F006C6D1E /* AuthState.swift */; };
 		1F061B3728D3C202006C6D1E /* AuthReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3628D3C202006C6D1E /* AuthReducer.swift */; };
+		1F061B3928D8D2A2006C6D1E /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3828D8D2A1006C6D1E /* HomePageView.swift */; };
+		1F061B3B28D9D3F9006C6D1E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3A28D9D3F9006C6D1E /* ViewExtension.swift */; };
 		1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */; };
 		1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7328C229BC00C65950 /* ContentView.swift */; };
 		1F8E0E7628C229BD00C65950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7528C229BD00C65950 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		1F061B3228D3C029006C6D1E /* AuthAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAction.swift; sourceTree = "<group>"; };
 		1F061B3428D3C12F006C6D1E /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		1F061B3628D3C202006C6D1E /* AuthReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReducer.swift; sourceTree = "<group>"; };
+		1F061B3828D8D2A1006C6D1E /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		1F061B3A28D9D3F9006C6D1E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		1F8E0E6E28C229BC00C65950 /* PushCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCoinApp.swift; sourceTree = "<group>"; };
 		1F8E0E7328C229BC00C65950 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */,
+				1F061B3828D8D2A1006C6D1E /* HomePageView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				1FDA230A28CA1A4500B2BD5B /* ColorExtension.swift */,
+				1F061B3A28D9D3F9006C6D1E /* ViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -377,7 +383,9 @@
 				1FDA231128CA250600B2BD5B /* Color.swift in Sources */,
 				1FDA22FC28C8A78000B2BD5B /* PageState.swift in Sources */,
 				1FDA231328CA2C1B00B2BD5B /* Font.swift in Sources */,
+				1F061B3B28D9D3F9006C6D1E /* ViewExtension.swift in Sources */,
 				1FDA231528CA329700B2BD5B /* Geometry.swift in Sources */,
+				1F061B3928D8D2A2006C6D1E /* HomePageView.swift in Sources */,
 				1FDA231B28CA412A00B2BD5B /* SignUpWithEmailView.swift in Sources */,
 				1F061B3128D3412B006C6D1E /* CountDownViewModel.swift in Sources */,
 				1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */,

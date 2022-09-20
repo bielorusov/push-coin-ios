@@ -69,11 +69,15 @@ struct HoleShape: View {
       Rectangle()
         .fill(RadialGradient(gradient: Gradient.tapBar, center: .top, startRadius: 0, endRadius: 100))
         .frame(width: maxWidth, height: maxHeight)
-      Image("HoleMask")
-        .offset(x: 3, y: -12)
-        .blendMode(.destinationOut)
+        .inverseMask(
+          Image("HoleMask")
+            .frame(width: maxWidth, height: maxHeight)
+            .offset(x: 3, y: -12)
+            .blendMode(.destinationOut)
+        )
     }
-    .compositingGroup()
+    
+//    .compositingGroup()
   }
 }
 

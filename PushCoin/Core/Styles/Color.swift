@@ -10,6 +10,7 @@ import SwiftUI
 extension Color {
   enum App {
     static let shape = Color(0xD9D9D9)
+    static let bg = Color(0x222741)
   }
   
   enum Form {

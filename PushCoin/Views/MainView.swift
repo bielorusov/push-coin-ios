@@ -11,46 +11,30 @@ struct MainView: View {
   @EnvironmentObject var store: AppStore
   
   var body: some View {
-    VStack {
-      Spacer()
-      switch store.state.pageState.currentPage {
-        case .home:
-          CounterView()
-        case .wallet:
-          Text("Wallet")
-        case .mapPin:
-          Text("Map Pin")
-        case .burger:
-          Button(action: {
-            self.store.dispatch(AuthAction.signOut)
-          }) {
-            Text("Log Out")
-          }
-        default: Text("Default Page")
-      }
-      Spacer()
-      HoleTapBarView()
-    }
-    .edgesIgnoringSafeArea(.all)
-  }
-}
-
-struct CounterView: View {
-  @EnvironmentObject var store: AppStore
-  
-  var body: some View {
-    VStack {
-      Text("\(store.state.counterState.count)")
-        .padding()
-      HStack {
-        Button("Increase") {
-          self.store.dispatch(CounterAction.increase)
-        }
-        
-        Button("Decrease") {
-          self.store.dispatch(CounterAction.decrease)
+    ZStack {      
+      VStack(spacing: 0) {
+        switch store.state.pageState.currentPage {
+          case .home:
+            HomePageView()              
+          case .wallet:
+            Text("Wallet")
+          case .mapPin:
+            Text("Map Pin")
+          case .burger:
+            Button(action: {
+              self.store.dispatch(AuthAction.signOut)
+            }) {
+              Text("Log Out")
+            }
+          default: Text("Default Page")
         }
       }
+      
+      VStack {
+        Spacer()
+        HoleTapBarView()
+      }
+      .edgesIgnoringSafeArea(.all)
     }
   }
 }
