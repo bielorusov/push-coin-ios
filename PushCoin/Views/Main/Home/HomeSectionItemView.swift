@@ -27,6 +27,6 @@ struct HomeSectionItemView: View {
 
 struct HomeSectionItemView_Previews: PreviewProvider {
   static var previews: some View {
-    HomeSectionItemView(section: SectionModel.sections[0])
+    HomeSectionItemView(section: SectionModel.sections[1])
   }
 }

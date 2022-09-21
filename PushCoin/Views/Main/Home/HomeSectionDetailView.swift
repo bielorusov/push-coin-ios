@@ -28,6 +28,7 @@ struct HomeSectionDetailView: View {
       ScrollView(.vertical, showsIndicators: false) {
         VStack(spacing: Geometry.Size.padding) {
           section.image
+            .clipShape(RoundedRectangle(cornerRadius: 15))
             .scaledToFill()
           
           Text(section.title).font(Font.App.title)
