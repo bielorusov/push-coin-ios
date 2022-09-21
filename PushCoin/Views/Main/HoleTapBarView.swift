@@ -86,7 +86,6 @@ struct MapCircleButtonView: View {
   
   var body: some View {
     Button(action: {
-      print("Map button Pressed")
       self.store.dispatch(PageAction.goTo(.mapPage))
     }) {
       CircleButtonView(
@@ -101,7 +100,6 @@ struct CamCircleButtonView: View {
   
   var body: some View {
     Button(action: {
-      print("Camera button Pressed")
       self.store.dispatch(PageAction.goTo(.camPage))
     }) {
       CircleButtonView(

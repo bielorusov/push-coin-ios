@@ -20,7 +20,7 @@ struct MainView: View {
             Text("Wallet")
           case .mapPage:
             MapPageView()
-          case  .camPage:
+          case .camPage:
             CamPageView()
           case .burger:
             Button(action: {
