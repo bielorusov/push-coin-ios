@@ -25,7 +25,8 @@ class Core {
 enum Page {
   case home
   case wallet
-  case mapPin
+  case mapPage
+  case camPage
   case burger
   case signUpWithEmail
   case signInWithEmail

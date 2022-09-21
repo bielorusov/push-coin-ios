@@ -20,7 +20,7 @@ struct HoleTapBarView: View {
           Spacer()
           HoleTapBarIconView(imageName: "Wallet", assignedPage: .wallet)
           Spacer(minLength: UIScreen.main.bounds.width/3)
-          HoleTapBarIconView(imageName: "MapPin", assignedPage: .mapPin)
+          HoleTapBarIconView(imageName: "MapPin", assignedPage: .mapPage)
           Spacer()
           HoleTapBarIconView(imageName: "Burger", assignedPage: .burger)
           Spacer()
@@ -29,7 +29,7 @@ struct HoleTapBarView: View {
         switch store.state.pageState.currentPage {
           case .home:
             MapCircleButtonView()
-          case .mapPin:
+          case .mapPage:
             CamCircleButtonView()
           default:
             MapCircleButtonView()
@@ -87,7 +87,7 @@ struct MapCircleButtonView: View {
   var body: some View {
     Button(action: {
       print("Map button Pressed")
-      self.store.dispatch(PageAction.goTo(.mapPin))
+      self.store.dispatch(PageAction.goTo(.mapPage))
     }) {
       CircleButtonView(
         image: Image("MapIcon")
@@ -97,9 +97,12 @@ struct MapCircleButtonView: View {
 }
 
 struct CamCircleButtonView: View {
+  @EnvironmentObject var store: AppStore
+  
   var body: some View {
     Button(action: {
       print("Camera button Pressed")
+      self.store.dispatch(PageAction.goTo(.camPage))
     }) {
       CircleButtonView(
         image: Image(systemName: "camera.viewfinder")

@@ -18,8 +18,10 @@ struct MainView: View {
             HomePageView()              
           case .wallet:
             Text("Wallet")
-          case .mapPin:
+          case .mapPage:
             MapPageView()
+          case  .camPage:
+            CamPageView()
           case .burger:
             Button(action: {
               self.store.dispatch(AuthAction.signOut)
