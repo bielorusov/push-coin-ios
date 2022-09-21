@@ -23,20 +23,5 @@ extension Font {
     static let largeMedium = appFont(size: 48).weight(.bold)
     static let buttonText = appFont(size: 16).weight(.bold)
     static let subheadline = appFont(size: 12)
-    
-//    static let appTitle = appFont(size: 32).weight(.semibold)
-//    static let appSubtitle = appFont(size: 20).weight(.medium)
-//    static let appCaption = appFont(size: 14).weight(.regular)
   }
 }
- 
-//struct ContentView: View {
-//    var body: some View {
-//        VStack {
-//            Text("SwiftUI")
-//                .font(.appTitle)
-//            Text("It is awesome!")
-//                .font(.appCaption)
-//        }
-//    }
-//}

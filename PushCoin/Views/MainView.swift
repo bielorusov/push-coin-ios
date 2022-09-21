@@ -19,7 +19,7 @@ struct MainView: View {
           case .wallet:
             Text("Wallet")
           case .mapPin:
-            Text("Map Pin")
+            MapPageView()
           case .burger:
             Button(action: {
               self.store.dispatch(AuthAction.signOut)

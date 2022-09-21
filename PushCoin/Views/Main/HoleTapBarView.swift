@@ -82,9 +82,12 @@ struct HoleShape: View {
 }
 
 struct MapCircleButtonView: View {
+  @EnvironmentObject var store: AppStore
+  
   var body: some View {
     Button(action: {
       print("Map button Pressed")
+      self.store.dispatch(PageAction.goTo(.mapPin))
     }) {
       CircleButtonView(
         image: Image("MapIcon")

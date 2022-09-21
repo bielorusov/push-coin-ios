@@ -33,6 +33,10 @@
 		1FAD2F3328DA5A15003F84F1 /* HomeSectionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3228DA5A15003F84F1 /* HomeSectionItemView.swift */; };
 		1FAD2F3528DA5A9D003F84F1 /* HomeSectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3428DA5A9D003F84F1 /* HomeSectionDetailView.swift */; };
 		1FAD2F3728DA5B5D003F84F1 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3628DA5B5D003F84F1 /* HomeContentView.swift */; };
+		1FAD2F3A28DBA53F003F84F1 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3928DBA53E003F84F1 /* MapCoordinator.swift */; };
+		1FAD2F3C28DBA588003F84F1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3B28DBA588003F84F1 /* MapView.swift */; };
+		1FAD2F3E28DBA607003F84F1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3D28DBA607003F84F1 /* LocationManager.swift */; };
+		1FAD2F4028DBAD57003F84F1 /* MapPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3F28DBAD57003F84F1 /* MapPageView.swift */; };
 		1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB55C928C76304009E3E7E /* RootView.swift */; };
 		1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F528C77CD900B2BD5B /* Redux.swift */; };
 		1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F928C8A71B00B2BD5B /* PageAction.swift */; };
@@ -81,6 +85,10 @@
 		1FAD2F3228DA5A15003F84F1 /* HomeSectionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionItemView.swift; sourceTree = "<group>"; };
 		1FAD2F3428DA5A9D003F84F1 /* HomeSectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionDetailView.swift; sourceTree = "<group>"; };
 		1FAD2F3628DA5B5D003F84F1 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
+		1FAD2F3928DBA53E003F84F1 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
+		1FAD2F3B28DBA588003F84F1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		1FAD2F3D28DBA607003F84F1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		1FAD2F3F28DBAD57003F84F1 /* MapPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPageView.swift; sourceTree = "<group>"; };
 		1FBB55C928C76304009E3E7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1FDA22F528C77CD900B2BD5B /* Redux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
 		1FDA22F928C8A71B00B2BD5B /* PageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAction.swift; sourceTree = "<group>"; };
@@ -141,6 +149,7 @@
 			children = (
 				1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */,
 				1F8E0E7328C229BC00C65950 /* ContentView.swift */,
+				1FAD2F3828DBA525003F84F1 /* Map */,
 				1F061B2B28D0DD8F006C6D1E /* ViewModels */,
 				1F8E0E8028C237E900C65950 /* Views */,
 				1F8E0E8928C51F7400C65950 /* Redux */,
@@ -237,12 +246,23 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		1FAD2F3828DBA525003F84F1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				1FAD2F3928DBA53E003F84F1 /* MapCoordinator.swift */,
+				1FAD2F3B28DBA588003F84F1 /* MapView.swift */,
+				1FAD2F3D28DBA607003F84F1 /* LocationManager.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		1FDA22F728C77D9200B2BD5B /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				1FAD2F2D28DA1D99003F84F1 /* Home */,
 				1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */,
 				1F061B3828D8D2A1006C6D1E /* HomePageView.swift */,
+				1FAD2F3F28DBAD57003F84F1 /* MapPageView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -397,6 +417,7 @@
 				1F061B3528D3C12F006C6D1E /* AuthState.swift in Sources */,
 				1F8E0E9528C5208000C65950 /* RootReducer.swift in Sources */,
 				1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */,
+				1FAD2F3A28DBA53F003F84F1 /* MapCoordinator.swift in Sources */,
 				1FAD2F2F28DA57FA003F84F1 /* SectionModel.swift in Sources */,
 				1FDA232628CF44D400B2BD5B /* SignInWithEmailView.swift in Sources */,
 				1FAD2F3328DA5A15003F84F1 /* HomeSectionItemView.swift in Sources */,
@@ -412,8 +433,10 @@
 				1FDA22FC28C8A78000B2BD5B /* PageState.swift in Sources */,
 				1FDA231328CA2C1B00B2BD5B /* Font.swift in Sources */,
 				1F061B3B28D9D3F9006C6D1E /* ViewExtension.swift in Sources */,
+				1FAD2F3C28DBA588003F84F1 /* MapView.swift in Sources */,
 				1FDA231528CA329700B2BD5B /* Geometry.swift in Sources */,
 				1F061B3928D8D2A2006C6D1E /* HomePageView.swift in Sources */,
+				1FAD2F4028DBAD57003F84F1 /* MapPageView.swift in Sources */,
 				1FDA231B28CA412A00B2BD5B /* SignUpWithEmailView.swift in Sources */,
 				1F061B3128D3412B006C6D1E /* CountDownViewModel.swift in Sources */,
 				1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */,
@@ -422,6 +445,7 @@
 				1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */,
 				1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */,
 				1FDA231D28CA4A4A00B2BD5B /* EyeSecureField.swift in Sources */,
+				1FAD2F3E28DBA607003F84F1 /* LocationManager.swift in Sources */,
 				1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */,
 				1F061B2D28D0DDB3006C6D1E /* OTPViewModel.swift in Sources */,
 				1F061B3328D3C029006C6D1E /* AuthAction.swift in Sources */,
