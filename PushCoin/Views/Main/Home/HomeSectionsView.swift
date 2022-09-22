@@ -11,9 +11,22 @@ struct HomeSectionsView: View {
   var body: some View {
     VStack {      
       ScrollView(.vertical, showsIndicators: false) {
-        VStack(spacing: Geometry.Size.padding) {
+        VStack {
           Spacer()
-            .frame(height: UIScreen.main.bounds.height * 2/3)
+          Ellipse()
+            .fill(Color.App.shape)
+            .frame(width: 120, height: 130)
+          HStack {
+            Text("3724,5")
+              .foregroundColor(.white)
+              .font(Font.App.largeMedium)
+          }
+        }.frame(height: UIScreen.main.bounds.height/3)
+        
+        Spacer()
+          .frame(height: UIScreen.main.bounds.height/3)
+        
+        VStack(spacing: Geometry.Size.padding) {
           ForEach(SectionModel.sections) { section in
             HomeSectionItemView(section: section)
           }

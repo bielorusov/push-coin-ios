@@ -13,8 +13,8 @@ extension Font {
     }
     
   enum App {
-    static let title = appFont(size: 24).weight(.bold)
-    static let body = appFont(size: 20)
+    static let title = appFont(size: 20).weight(.bold)
+    static let body = appFont(size: 16)
     
     static let plain = appFont(size: 16).weight(.semibold)
     static let input = appFont(size: 16)

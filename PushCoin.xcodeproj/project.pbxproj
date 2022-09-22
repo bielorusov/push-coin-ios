@@ -38,6 +38,9 @@
 		1FAD2F3E28DBA607003F84F1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3D28DBA607003F84F1 /* LocationManager.swift */; };
 		1FAD2F4028DBAD57003F84F1 /* MapPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3F28DBAD57003F84F1 /* MapPageView.swift */; };
 		1FAD2F4228DBB049003F84F1 /* CamPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4128DBB049003F84F1 /* CamPageView.swift */; };
+		1FAD2F4428DCEDC6003F84F1 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4328DCEDC4003F84F1 /* CameraViewModel.swift */; };
+		1FAD2F4728DCEF6D003F84F1 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4628DCEF6D003F84F1 /* CameraView.swift */; };
+		1FAD2F4928DCFB59003F84F1 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4828DCFB59003F84F1 /* Shapes.swift */; };
 		1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB55C928C76304009E3E7E /* RootView.swift */; };
 		1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F528C77CD900B2BD5B /* Redux.swift */; };
 		1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F928C8A71B00B2BD5B /* PageAction.swift */; };
@@ -91,6 +94,9 @@
 		1FAD2F3D28DBA607003F84F1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1FAD2F3F28DBAD57003F84F1 /* MapPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPageView.swift; sourceTree = "<group>"; };
 		1FAD2F4128DBB049003F84F1 /* CamPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamPageView.swift; sourceTree = "<group>"; };
+		1FAD2F4328DCEDC4003F84F1 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		1FAD2F4628DCEF6D003F84F1 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		1FAD2F4828DCFB59003F84F1 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		1FBB55C928C76304009E3E7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1FDA22F528C77CD900B2BD5B /* Redux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
 		1FDA22F928C8A71B00B2BD5B /* PageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAction.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 			children = (
 				1F061B2C28D0DDB3006C6D1E /* OTPViewModel.swift */,
 				1F061B3028D3412A006C6D1E /* CountDownViewModel.swift */,
+				1FAD2F4328DCEDC4003F84F1 /* CameraViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -151,6 +158,7 @@
 			children = (
 				1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */,
 				1F8E0E7328C229BC00C65950 /* ContentView.swift */,
+				1FAD2F4528DCEF51003F84F1 /* Camera */,
 				1FAD2F3828DBA525003F84F1 /* Map */,
 				1F061B2B28D0DD8F006C6D1E /* ViewModels */,
 				1F8E0E8028C237E900C65950 /* Views */,
@@ -258,6 +266,14 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		1FAD2F4528DCEF51003F84F1 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				1FAD2F4628DCEF6D003F84F1 /* CameraView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		1FDA22F728C77D9200B2BD5B /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +323,7 @@
 				1FDA232028CA859B00B2BD5B /* Styles */,
 				1FDA230D28CA1F7800B2BD5B /* LabelledDividerView.swift */,
 				1FDA231C28CA4A4900B2BD5B /* EyeSecureField.swift */,
+				1FAD2F4828DCFB59003F84F1 /* Shapes.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -415,6 +432,8 @@
 				1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */,
 				1FAD2F3528DA5A9D003F84F1 /* HomeSectionDetailView.swift in Sources */,
 				1F061B3728D3C202006C6D1E /* AuthReducer.swift in Sources */,
+				1FAD2F4728DCEF6D003F84F1 /* CameraView.swift in Sources */,
+				1FAD2F4428DCEDC6003F84F1 /* CameraViewModel.swift in Sources */,
 				1FDA22FE28C8A81400B2BD5B /* PageReducer.swift in Sources */,
 				1F061B2F28D0DE7D006C6D1E /* OTPVerificationView.swift in Sources */,
 				1F061B3528D3C12F006C6D1E /* AuthState.swift in Sources */,
@@ -423,6 +442,7 @@
 				1FAD2F3A28DBA53F003F84F1 /* MapCoordinator.swift in Sources */,
 				1FAD2F2F28DA57FA003F84F1 /* SectionModel.swift in Sources */,
 				1FDA232628CF44D400B2BD5B /* SignInWithEmailView.swift in Sources */,
+				1FAD2F4928DCFB59003F84F1 /* Shapes.swift in Sources */,
 				1FAD2F3328DA5A15003F84F1 /* HomeSectionItemView.swift in Sources */,
 				1F8E0E9328C5206900C65950 /* AppState.swift in Sources */,
 				1FDA231728CA3D8900B2BD5B /* Core.swift in Sources */,

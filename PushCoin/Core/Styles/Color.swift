@@ -9,6 +9,7 @@ import SwiftUI
 
 extension Color {
   enum App {
+    static let arc = Color(0x006DD2)
     static let shape = Color(0xD9D9D9)
     static let bg = Color(0x222741)
   }

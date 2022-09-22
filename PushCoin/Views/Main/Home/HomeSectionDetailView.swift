@@ -14,16 +14,16 @@ struct HomeSectionDetailView: View {
   var body: some View {
     VStack {
       HStack {
-        Spacer()
         Button(action: {
           dismiss()
         }){
-          Image(systemName: "xmark")
-            .foregroundColor(.gray)
+          Image(systemName: "chevron.down")
+            .resizable()
+            .frame(width: 40, height: 6)
+            .foregroundColor(.black)
+            .opacity(0.5)
         }
-      }
-      .frame(width: Geometry.Size.inputFieldWidth)
-      .padding(.top, Geometry.Size.padding)
+      }.offset(y: 20)
       
       ScrollView(.vertical, showsIndicators: false) {
         VStack(spacing: Geometry.Size.padding) {

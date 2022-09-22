@@ -9,12 +9,15 @@ import SwiftUI
 
 struct HomeContentView: View {
   var body: some View {
-    VStack {
-      Text("3000 P")
-        .foregroundColor(.white)
-        .font(Font.App.largeMedium)
+    ZStack {
+      
     }
-    .offset(x: 0, y: -UIScreen.main.bounds.height/6 )
+//    VStack {
+//      Text("3000 P")
+//        .foregroundColor(.white)
+//        .font(Font.App.largeMedium)
+//    }
+//    .offset(x: 0, y: -UIScreen.main.bounds.height/6 )
   }
 }
 

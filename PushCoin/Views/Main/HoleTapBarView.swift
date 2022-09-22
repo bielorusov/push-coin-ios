@@ -61,11 +61,17 @@ struct HoleTapBarIconView: View {
 }
 
 struct HoleShape: View {
+  @EnvironmentObject var store: AppStore
+  
   let maxWidth = UIScreen.main.bounds.width
   let maxHeight: CGFloat = 60
   
   var body: some View {
     ZStack {
+      if [.camPage, .mapPage].contains(store.state.pageState.currentPage) {
+        DirectionArcView()
+      }
+      
       Rectangle()
         .fill(RadialGradient(gradient: Gradient.tapBar, center: .top, startRadius: 0, endRadius: 100))
         .frame(width: maxWidth, height: maxHeight)
@@ -76,8 +82,35 @@ struct HoleShape: View {
             .blendMode(.destinationOut)
         )
     }
-    
-//    .compositingGroup()
+  }
+}
+
+//AngularGradient(
+//  gradient: Gradient(
+//    colors: [Color.App.arc, .red]
+//  ),
+//  center: .center,
+//  startAngle: .degrees(0),
+//  endAngle: .degrees(90)
+//),
+//    ArcShape(startAngle: .degrees(0), endAngle: .degrees(360), clockWise: true)
+//      .offset(x: 0, y: -260)
+struct DirectionArcView: View {
+  @ObservedObject private var locationManager = LocationManager()
+  
+  var body: some View {
+    ArcShape(startAngle: .degrees(-10), endAngle: .degrees(190), clockWise: true)
+      .stroke(
+        RadialGradient(
+          colors: [Color.App.arc, .purple, .yellow, .orange, .red],
+          center: .center,
+          startRadius: 0,
+          endRadius: self.locationManager.magneticHeading
+        ),
+        lineWidth: 12
+      )
+      .frame(width: 90, height: 40)
+      .offset(x: 0, y: -30)
   }
 }
 
