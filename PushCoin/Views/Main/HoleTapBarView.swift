@@ -85,13 +85,11 @@ struct HoleShape: View {
   }
 }
 
-//AngularGradient(
-//  gradient: Gradient(
-//    colors: [Color.App.arc, .red]
-//  ),
+//RadialGradient(
+//  colors: [Color.App.arc, .purple, .yellow, .orange, .red],
 //  center: .center,
-//  startAngle: .degrees(0),
-//  endAngle: .degrees(90)
+//  startRadius: 0,
+//  endRadius: self.locationManager.magneticHeading
 //),
 //    ArcShape(startAngle: .degrees(0), endAngle: .degrees(360), clockWise: true)
 //      .offset(x: 0, y: -260)
@@ -99,18 +97,26 @@ struct DirectionArcView: View {
   @ObservedObject private var locationManager = LocationManager()
   
   var body: some View {
+    ZStack {
     ArcShape(startAngle: .degrees(-10), endAngle: .degrees(190), clockWise: true)
       .stroke(
-        RadialGradient(
-          colors: [Color.App.arc, .purple, .yellow, .orange, .red],
+        AngularGradient(
+          gradient: Gradient(
+            colors: [.red, .orange, .purple, Color.App.arc]
+          ),
           center: .center,
-          startRadius: 0,
-          endRadius: self.locationManager.magneticHeading
+          startAngle: .degrees(0),
+          endAngle: .degrees(0)
         ),
         lineWidth: 12
       )
+      .hueRotation(.degrees(360 - locationManager.magneticHeading))
       .frame(width: 90, height: 40)
       .offset(x: 0, y: -30)
+//
+//      Text("\(String(format: "%.0f", 360 - locationManager.magneticHeading))")
+//        .offset(x: 0, y: -80)
+    }
   }
 }
 

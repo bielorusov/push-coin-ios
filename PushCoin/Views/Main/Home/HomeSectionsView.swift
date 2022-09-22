@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeSectionsView: View {
+  @State private var walletBalance: Double = 3724.5
+  
   var body: some View {
     VStack {      
       ScrollView(.vertical, showsIndicators: false) {
@@ -17,7 +19,7 @@ struct HomeSectionsView: View {
             .fill(Color.App.shape)
             .frame(width: 120, height: 130)
           HStack {
-            Text("3724,5")
+            Text(String(format: "%.2f", walletBalance))
               .foregroundColor(.white)
               .font(Font.App.largeMedium)
           }
