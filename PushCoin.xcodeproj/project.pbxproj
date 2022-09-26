@@ -41,6 +41,11 @@
 		1FAD2F4428DCEDC6003F84F1 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4328DCEDC4003F84F1 /* CameraViewModel.swift */; };
 		1FAD2F4728DCEF6D003F84F1 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4628DCEF6D003F84F1 /* CameraView.swift */; };
 		1FAD2F4928DCFB59003F84F1 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4828DCFB59003F84F1 /* Shapes.swift */; };
+		1FAD2F4B28E1EB89003F84F1 /* ImageSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4A28E1EB88003F84F1 /* ImageSequenceView.swift */; };
+		1FAD2F4D28E1EC55003F84F1 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4C28E1EC55003F84F1 /* CoinView.swift */; };
+		1FAD2F5128E20073003F84F1 /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F5028E20072003F84F1 /* CGFloatExtension.swift */; };
+		1FAD2F5328E25458003F84F1 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F5228E25456003F84F1 /* MotionManager.swift */; };
+		1FAD2F5628E25A6E003F84F1 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F5528E25A6E003F84F1 /* DoubleExtension.swift */; };
 		1FBB55CA28C76304009E3E7E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB55C928C76304009E3E7E /* RootView.swift */; };
 		1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F528C77CD900B2BD5B /* Redux.swift */; };
 		1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA22F928C8A71B00B2BD5B /* PageAction.swift */; };
@@ -97,6 +102,11 @@
 		1FAD2F4328DCEDC4003F84F1 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		1FAD2F4628DCEF6D003F84F1 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		1FAD2F4828DCFB59003F84F1 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		1FAD2F4A28E1EB88003F84F1 /* ImageSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSequenceView.swift; sourceTree = "<group>"; };
+		1FAD2F4C28E1EC55003F84F1 /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
+		1FAD2F5028E20072003F84F1 /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
+		1FAD2F5228E25456003F84F1 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		1FAD2F5528E25A6E003F84F1 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		1FBB55C928C76304009E3E7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1FDA22F528C77CD900B2BD5B /* Redux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
 		1FDA22F928C8A71B00B2BD5B /* PageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAction.swift; sourceTree = "<group>"; };
@@ -156,6 +166,7 @@
 		1F8E0E7028C229BC00C65950 /* PushCoin */ = {
 			isa = PBXGroup;
 			children = (
+				1FAD2F5428E25463003F84F1 /* Managers */,
 				1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */,
 				1F8E0E7328C229BC00C65950 /* ContentView.swift */,
 				1FAD2F4528DCEF51003F84F1 /* Camera */,
@@ -261,7 +272,6 @@
 			children = (
 				1FAD2F3928DBA53E003F84F1 /* MapCoordinator.swift */,
 				1FAD2F3B28DBA588003F84F1 /* MapView.swift */,
-				1FAD2F3D28DBA607003F84F1 /* LocationManager.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -272,6 +282,15 @@
 				1FAD2F4628DCEF6D003F84F1 /* CameraView.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		1FAD2F5428E25463003F84F1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1FAD2F5228E25456003F84F1 /* MotionManager.swift */,
+				1FAD2F3D28DBA607003F84F1 /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		1FDA22F728C77D9200B2BD5B /* Main */ = {
@@ -313,6 +332,8 @@
 			children = (
 				1FDA230A28CA1A4500B2BD5B /* ColorExtension.swift */,
 				1F061B3A28D9D3F9006C6D1E /* ViewExtension.swift */,
+				1FAD2F5028E20072003F84F1 /* CGFloatExtension.swift */,
+				1FAD2F5528E25A6E003F84F1 /* DoubleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +345,8 @@
 				1FDA230D28CA1F7800B2BD5B /* LabelledDividerView.swift */,
 				1FDA231C28CA4A4900B2BD5B /* EyeSecureField.swift */,
 				1FAD2F4828DCFB59003F84F1 /* Shapes.swift */,
+				1FAD2F4A28E1EB88003F84F1 /* ImageSequenceView.swift */,
+				1FAD2F4C28E1EC55003F84F1 /* CoinView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -454,6 +477,8 @@
 				1FAD2F3728DA5B5D003F84F1 /* HomeContentView.swift in Sources */,
 				1FDA231128CA250600B2BD5B /* Color.swift in Sources */,
 				1FDA22FC28C8A78000B2BD5B /* PageState.swift in Sources */,
+				1FAD2F5128E20073003F84F1 /* CGFloatExtension.swift in Sources */,
+				1FAD2F5628E25A6E003F84F1 /* DoubleExtension.swift in Sources */,
 				1FDA231328CA2C1B00B2BD5B /* Font.swift in Sources */,
 				1F061B3B28D9D3F9006C6D1E /* ViewExtension.swift in Sources */,
 				1FAD2F3C28DBA588003F84F1 /* MapView.swift in Sources */,
@@ -462,7 +487,10 @@
 				1FAD2F4028DBAD57003F84F1 /* MapPageView.swift in Sources */,
 				1FDA231B28CA412A00B2BD5B /* SignUpWithEmailView.swift in Sources */,
 				1F061B3128D3412B006C6D1E /* CountDownViewModel.swift in Sources */,
+				1FAD2F4B28E1EB89003F84F1 /* ImageSequenceView.swift in Sources */,
+				1FAD2F5328E25458003F84F1 /* MotionManager.swift in Sources */,
 				1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */,
+				1FAD2F4D28E1EC55003F84F1 /* CoinView.swift in Sources */,
 				1FDA232228CA85B200B2BD5B /* CapsuleFieldStyle.swift in Sources */,
 				1FDA231928CA3FC200B2BD5B /* SignUpView.swift in Sources */,
 				1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */,

@@ -13,11 +13,10 @@ struct HomeSectionsView: View {
   var body: some View {
     VStack {      
       ScrollView(.vertical, showsIndicators: false) {
-        VStack {
+        VStack(spacing: 0) {
           Spacer()
-          Ellipse()
-            .fill(Color.App.shape)
-            .frame(width: 120, height: 130)
+          CoinView()
+            .frame(width: 120, height: 120)
           HStack {
             Text(String(format: "%.2f", walletBalance))
               .foregroundColor(.white)
@@ -26,7 +25,7 @@ struct HomeSectionsView: View {
         }.frame(height: UIScreen.main.bounds.height/3)
         
         Spacer()
-          .frame(height: UIScreen.main.bounds.height/3)
+          .frame(height: UIScreen.main.bounds.height/6)
         
         VStack(spacing: Geometry.Size.padding) {
           ForEach(SectionModel.sections) { section in

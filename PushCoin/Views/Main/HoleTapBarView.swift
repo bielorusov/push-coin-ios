@@ -68,9 +68,9 @@ struct HoleShape: View {
   
   var body: some View {
     ZStack {
-      if [.camPage, .mapPage].contains(store.state.pageState.currentPage) {
+//      if [.camPage, .mapPage].contains(store.state.pageState.currentPage) {
         DirectionArcView()
-      }
+//      }
       
       Rectangle()
         .fill(RadialGradient(gradient: Gradient.tapBar, center: .top, startRadius: 0, endRadius: 100))
