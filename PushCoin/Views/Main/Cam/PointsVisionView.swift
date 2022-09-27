@@ -31,7 +31,7 @@ extension PointsVisionView {
   
   private func calcYOffset() -> CGFloat {
     let screenHeight = UIScreen.main.bounds.height
-    let gravityZ = CGFloat(motionManager.gravityZ.rounded(to: 2))
+    let gravityZ = CGFloat(motionManager.gravityZ)
     
     return (screenHeight * gravityZ).rounded(to: 1)
   }
