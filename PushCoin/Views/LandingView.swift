@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct LandingView: View {
+  @EnvironmentObject var store: AppStore
+  
   var body: some View {
-    Text("SignIn/SignUP First General Page")
+    switch store.state.pageState.currentPage {
+      case .signInWithEmail:
+        SignInWithEmailView()
+      case .signUpWithEmail:
+        SignUpWithEmailView()
+      case .otpVerification:
+        OTPVerificationView()
+      default: SignUpView()
+    }
   }
 }
 
 struct LandingView_Previews: PreviewProvider {
   static var previews: some View {
-    LandingView()
+    ZStack {
+      LandingView()
+    }
   }
 }

@@ -17,7 +17,10 @@ struct PageReducer: ReduxReducer {
     
     switch action {
       case .goTo(let page):
-        return PageState(currentPage: page)
+        return PageState(
+          currentPage: page,
+          previousPage: currentState.previousPage          
+        )
     }
   }
 }

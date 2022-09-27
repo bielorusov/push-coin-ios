@@ -20,7 +20,7 @@ struct HoleTapBarView: View {
           Spacer()
           HoleTapBarIconView(imageName: "Wallet", assignedPage: .wallet)
           Spacer(minLength: UIScreen.main.bounds.width/3)
-          HoleTapBarIconView(imageName: "MapPin", assignedPage: .mapPin)
+          HoleTapBarIconView(imageName: "MapPin", assignedPage: .mapPage)
           Spacer()
           HoleTapBarIconView(imageName: "Burger", assignedPage: .burger)
           Spacer()
@@ -29,7 +29,7 @@ struct HoleTapBarView: View {
         switch store.state.pageState.currentPage {
           case .home:
             MapCircleButtonView()
-          case .mapPin:
+          case .mapPage:
             CamCircleButtonView()
           default:
             MapCircleButtonView()
@@ -61,28 +61,71 @@ struct HoleTapBarIconView: View {
 }
 
 struct HoleShape: View {
-  let gradient = Gradient(colors: [Color("HoleTapBar_1"), Color("HoleTapBar_0")])
+  @EnvironmentObject var store: AppStore
+  
   let maxWidth = UIScreen.main.bounds.width
   let maxHeight: CGFloat = 60
   
   var body: some View {
     ZStack {
+      if [.camPage, .mapPage].contains(store.state.pageState.currentPage) {
+        DirectionArcView()
+      }
+      
       Rectangle()
-        .fill(RadialGradient(gradient: gradient, center: .top, startRadius: 0, endRadius: 100))
+        .fill(RadialGradient(gradient: Gradient.tapBar, center: .top, startRadius: 0, endRadius: 100))
         .frame(width: maxWidth, height: maxHeight)
-      Image("HoleMask")
-      //        .frame(width: maxWidth, height: maxHeight)
-        .offset(x: 3, y: -12)
-        .blendMode(.destinationOut)
+        .inverseMask(
+          Image("HoleMask")
+            .frame(width: maxWidth, height: maxHeight)
+            .offset(x: 3, y: -12)
+            .blendMode(.destinationOut)
+        )
     }
-    .compositingGroup()
+  }
+}
+
+//RadialGradient(
+//  colors: [Color.App.arc, .purple, .yellow, .orange, .red],
+//  center: .center,
+//  startRadius: 0,
+//  endRadius: self.locationManager.magneticHeading
+//),
+//    ArcShape(startAngle: .degrees(0), endAngle: .degrees(360), clockWise: true)
+//      .offset(x: 0, y: -260)
+struct DirectionArcView: View {
+  @ObservedObject private var locationManager = LocationManager()
+  
+  var body: some View {
+    ZStack {
+    ArcShape(startAngle: .degrees(-10), endAngle: .degrees(190), clockWise: true)
+      .stroke(
+        AngularGradient(
+          gradient: Gradient(
+            colors: [.red, .orange, .purple, Color.App.arc]
+          ),
+          center: .center,
+          startAngle: .degrees(0),
+          endAngle: .degrees(0)
+        ),
+        lineWidth: 12
+      )
+      .hueRotation(.degrees(360 - locationManager.magneticHeading))
+      .frame(width: 90, height: 40)
+      .offset(x: 0, y: -30)
+//
+//      Text("\(String(format: "%.0f", 360 - locationManager.magneticHeading))")
+//        .offset(x: 0, y: -80)
+    }
   }
 }
 
 struct MapCircleButtonView: View {
+  @EnvironmentObject var store: AppStore
+  
   var body: some View {
     Button(action: {
-      print("Map button Pressed")
+      self.store.dispatch(PageAction.goTo(.mapPage))
     }) {
       CircleButtonView(
         image: Image("MapIcon")
@@ -92,9 +135,11 @@ struct MapCircleButtonView: View {
 }
 
 struct CamCircleButtonView: View {
+  @EnvironmentObject var store: AppStore
+  
   var body: some View {
     Button(action: {
-      print("Camera button Pressed")
+      self.store.dispatch(PageAction.goTo(.camPage))
     }) {
       CircleButtonView(
         image: Image(systemName: "camera.viewfinder")
@@ -110,7 +155,7 @@ struct CircleButtonView: View {
     ZStack {
       Circle()
         .fill(LinearGradient(
-          gradient: Gradient(colors: [Color("PlusButtonGrad1"), Color("PlusButtonGrad2")]),
+          gradient: Gradient.circleButton,
           startPoint: .top,
           endPoint: .bottom))
         .frame(width: 56, height: 56, alignment: .center)
@@ -126,6 +171,7 @@ struct CircleButtonView: View {
 struct HoleTapBarView_Previews: PreviewProvider {
   static var previews: some View {
     HoleTapBarView()
+      .environmentObject(Core.initedStore)
       .previewInterfaceOrientation(.portrait)
   }
 }

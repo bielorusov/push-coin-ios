@@ -8,65 +8,43 @@
 import SwiftUI
 
 struct MainView: View {
-//  @StateObject var viewRouter = ViewRouter()
-  
   @EnvironmentObject var store: AppStore
   
   var body: some View {
-    VStack {
-      Spacer()
-      switch store.state.pageState.currentPage {
-        case .home:
-          CounterView()
-        case .wallet:
-          Text("Wallet")
-        case .mapPin:
-          Text("Map Pin")
-        case .burger:
-          Text("Burger")
-      }
-      Spacer()
-      HoleTapBarView()
-    }
-    .edgesIgnoringSafeArea(.all)
-  }
-}
-
-struct CounterView: View {
-  @EnvironmentObject var store: AppStore
-  
-  var body: some View {
-    VStack {
-      Text("\(store.state.counterState.count)")
-        .padding()
-      HStack {
-        Button("Increase") {
-          self.store.dispatch(CounterAction.increase)
-        }
-        
-        Button("Decrease") {
-          self.store.dispatch(CounterAction.decrease)
+    ZStack {      
+      VStack(spacing: 0) {
+        switch store.state.pageState.currentPage {
+          case .home:
+            HomePageView()              
+          case .wallet:
+            Text("Wallet")
+          case .mapPage:
+            MapPageView()
+          case .camPage:
+            CamPageView()
+          case .burger:
+            Button(action: {
+              self.store.dispatch(AuthAction.signOut)
+            }) {
+              Text("Log Out")
+            }
+          default: Text("Default Page")
         }
       }
+      
+      VStack {
+        Spacer()
+        HoleTapBarView()
+      }
+      .edgesIgnoringSafeArea(.all)
     }
   }
 }
 
 struct MainView_Previews: PreviewProvider {
   static var previews: some View {
-    let store: AppStore = Store(
-      initialState: AppState(
-        counterState: .initialState,
-        pageState: .initialState
-      ),
-      rootReducer: RootReducer(
-        counterReducer: .init(),
-        pageReducer: .init()
-      )
-    )
-    
     MainView()
-      .environmentObject(store)
+      .environmentObject(Core.initedStore)
   }
 }
 

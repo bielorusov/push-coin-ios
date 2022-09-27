@@ -9,8 +9,9 @@ import Foundation
 
 struct PageState: ReduxState {
   static var initialState: PageState {
-    .init(currentPage: .home)
+    .init(currentPage: .home, previousPage: .home)
   }
   
   let currentPage: Page
+  let previousPage: Page
 }
