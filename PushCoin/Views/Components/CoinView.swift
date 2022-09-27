@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CoinView: View {
-  private let images = (1...30).map { String("coin_\($0)") }.map { Image($0) }
+  private let images = (0...60).map { String(format: "coin_%05d", $0) }.map { Image($0) }
   
   var body: some View {
     ImageSequenceView(images: images)
@@ -18,5 +18,6 @@ struct CoinView: View {
 struct CoinView_Previews: PreviewProvider {
   static var previews: some View {
     CoinView()
+      .frame(width: 160, height: 160)
   }
 }

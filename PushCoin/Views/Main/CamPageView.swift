@@ -56,9 +56,9 @@ struct CamPageView: View {
   }
   
   func calcXOffset() -> CGFloat {
-    let direct = locationManager.magneticHeading.rounded()
+    let direct = locationManager.magneticHeading
     
-    return (UIScreen.main.bounds.width * sin(direct.degToRad))
+    return (((.pi * UIScreen.main.bounds.width)/2) * sin(direct.degToRad))
   }
 }
 
