@@ -13,9 +13,11 @@ struct SignUpView: View {
   var body: some View {
     VStack(spacing: Geometry.Size.padding) {
       Spacer()
+      
       Image("coin_00060")
           .resizable()
           .frame(width: 166, height: 166)
+      
       Spacer()
       
       Text("Sign up with")

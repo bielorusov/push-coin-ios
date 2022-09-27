@@ -15,7 +15,7 @@ struct HomeSectionsView: View {
       ScrollView(.vertical, showsIndicators: false) {
         VStack(spacing: 0) {
           Spacer()
-          CoinView()
+          CoinSequenceView(coinType: "coin")
             .frame(width: 120, height: 120)
           HStack {
             Text(String(format: "%.2f", walletBalance))

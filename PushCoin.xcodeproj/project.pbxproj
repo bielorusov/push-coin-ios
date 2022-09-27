@@ -15,6 +15,8 @@
 		1F061B3728D3C202006C6D1E /* AuthReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3628D3C202006C6D1E /* AuthReducer.swift */; };
 		1F061B3928D8D2A2006C6D1E /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3828D8D2A1006C6D1E /* HomePageView.swift */; };
 		1F061B3B28D9D3F9006C6D1E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3A28D9D3F9006C6D1E /* ViewExtension.swift */; };
+		1F1E0C4228E392FA00E56B50 /* CameraVisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E0C4128E392FA00E56B50 /* CameraVisionView.swift */; };
+		1F1E0C4428E3939100E56B50 /* PointsVisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E0C4328E3939100E56B50 /* PointsVisionView.swift */; };
 		1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */; };
 		1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7328C229BC00C65950 /* ContentView.swift */; };
 		1F8E0E7628C229BD00C65950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7528C229BD00C65950 /* Assets.xcassets */; };
@@ -42,7 +44,7 @@
 		1FAD2F4728DCEF6D003F84F1 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4628DCEF6D003F84F1 /* CameraView.swift */; };
 		1FAD2F4928DCFB59003F84F1 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4828DCFB59003F84F1 /* Shapes.swift */; };
 		1FAD2F4B28E1EB89003F84F1 /* ImageSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4A28E1EB88003F84F1 /* ImageSequenceView.swift */; };
-		1FAD2F4D28E1EC55003F84F1 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4C28E1EC55003F84F1 /* CoinView.swift */; };
+		1FAD2F4D28E1EC55003F84F1 /* CoinSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F4C28E1EC55003F84F1 /* CoinSequenceView.swift */; };
 		1FAD2F5128E20073003F84F1 /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F5028E20072003F84F1 /* CGFloatExtension.swift */; };
 		1FAD2F5328E25458003F84F1 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F5228E25456003F84F1 /* MotionManager.swift */; };
 		1FAD2F5628E25A6E003F84F1 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F5528E25A6E003F84F1 /* DoubleExtension.swift */; };
@@ -74,6 +76,8 @@
 		1F061B3628D3C202006C6D1E /* AuthReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthReducer.swift; sourceTree = "<group>"; };
 		1F061B3828D8D2A1006C6D1E /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		1F061B3A28D9D3F9006C6D1E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		1F1E0C4128E392FA00E56B50 /* CameraVisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVisionView.swift; sourceTree = "<group>"; };
+		1F1E0C4328E3939100E56B50 /* PointsVisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsVisionView.swift; sourceTree = "<group>"; };
 		1F8E0E6E28C229BC00C65950 /* PushCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCoinApp.swift; sourceTree = "<group>"; };
 		1F8E0E7328C229BC00C65950 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,7 +107,7 @@
 		1FAD2F4628DCEF6D003F84F1 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		1FAD2F4828DCFB59003F84F1 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		1FAD2F4A28E1EB88003F84F1 /* ImageSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSequenceView.swift; sourceTree = "<group>"; };
-		1FAD2F4C28E1EC55003F84F1 /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
+		1FAD2F4C28E1EC55003F84F1 /* CoinSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinSequenceView.swift; sourceTree = "<group>"; };
 		1FAD2F5028E20072003F84F1 /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
 		1FAD2F5228E25456003F84F1 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		1FAD2F5528E25A6E003F84F1 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
@@ -293,9 +297,19 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		1FBB9B8A28E3354800FC305B /* Cam */ = {
+			isa = PBXGroup;
+			children = (
+				1F1E0C4128E392FA00E56B50 /* CameraVisionView.swift */,
+				1F1E0C4328E3939100E56B50 /* PointsVisionView.swift */,
+			);
+			path = Cam;
+			sourceTree = "<group>";
+		};
 		1FDA22F728C77D9200B2BD5B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1FBB9B8A28E3354800FC305B /* Cam */,
 				1FAD2F2D28DA1D99003F84F1 /* Home */,
 				1F8E0E8128C2380600C65950 /* HoleTapBarView.swift */,
 				1F061B3828D8D2A1006C6D1E /* HomePageView.swift */,
@@ -346,7 +360,7 @@
 				1FDA231C28CA4A4900B2BD5B /* EyeSecureField.swift */,
 				1FAD2F4828DCFB59003F84F1 /* Shapes.swift */,
 				1FAD2F4A28E1EB88003F84F1 /* ImageSequenceView.swift */,
-				1FAD2F4C28E1EC55003F84F1 /* CoinView.swift */,
+				1FAD2F4C28E1EC55003F84F1 /* CoinSequenceView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -484,13 +498,14 @@
 				1FAD2F3C28DBA588003F84F1 /* MapView.swift in Sources */,
 				1FDA231528CA329700B2BD5B /* Geometry.swift in Sources */,
 				1F061B3928D8D2A2006C6D1E /* HomePageView.swift in Sources */,
+				1F1E0C4428E3939100E56B50 /* PointsVisionView.swift in Sources */,
 				1FAD2F4028DBAD57003F84F1 /* MapPageView.swift in Sources */,
 				1FDA231B28CA412A00B2BD5B /* SignUpWithEmailView.swift in Sources */,
 				1F061B3128D3412B006C6D1E /* CountDownViewModel.swift in Sources */,
 				1FAD2F4B28E1EB89003F84F1 /* ImageSequenceView.swift in Sources */,
 				1FAD2F5328E25458003F84F1 /* MotionManager.swift in Sources */,
 				1F8E0E8828C2C2E800C65950 /* LandingView.swift in Sources */,
-				1FAD2F4D28E1EC55003F84F1 /* CoinView.swift in Sources */,
+				1FAD2F4D28E1EC55003F84F1 /* CoinSequenceView.swift in Sources */,
 				1FDA232228CA85B200B2BD5B /* CapsuleFieldStyle.swift in Sources */,
 				1FDA231928CA3FC200B2BD5B /* SignUpView.swift in Sources */,
 				1FDA22FA28C8A71C00B2BD5B /* PageAction.swift in Sources */,
@@ -498,6 +513,7 @@
 				1FDA231D28CA4A4A00B2BD5B /* EyeSecureField.swift in Sources */,
 				1FAD2F4228DBB049003F84F1 /* CamPageView.swift in Sources */,
 				1FAD2F3E28DBA607003F84F1 /* LocationManager.swift in Sources */,
+				1F1E0C4228E392FA00E56B50 /* CameraVisionView.swift in Sources */,
 				1F8E0E9928C520FA00C65950 /* CounterReducer.swift in Sources */,
 				1F061B2D28D0DDB3006C6D1E /* OTPViewModel.swift in Sources */,
 				1F061B3328D3C029006C6D1E /* AuthAction.swift in Sources */,

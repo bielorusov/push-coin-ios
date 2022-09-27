@@ -9,7 +9,15 @@ import SwiftUI
 
 struct ImageSequenceView: View {
   let images: [Image]
-  @ObservedObject private var counter = SequenceCounter(interval: 0.05)
+  let interval: Double
+  
+  @ObservedObject private var counter: SequenceCounter
+  
+  init(images: [Image], interval: Double) {
+    self.images = images
+    self.interval = interval
+    self.counter = SequenceCounter(interval: interval)
+  }
   
   var body: some View {
     images[counter.value % images.count]
