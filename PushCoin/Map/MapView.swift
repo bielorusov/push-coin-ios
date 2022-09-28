@@ -12,6 +12,7 @@ struct MapView: UIViewRepresentable {
   @Binding var startTracking: Bool
   let camera: MKMapCamera
   let mapType: MKMapType
+  let annotations: [MKPointAnnotation]
   
   func makeUIView(context: Context) -> MKMapView {
     let map = MKMapView()
@@ -23,6 +24,11 @@ struct MapView: UIViewRepresentable {
     map.mapType = mapType
     map.setUserTrackingMode(.followWithHeading, animated: false)
     map.setCamera(camera, animated: true)
+    
+    // Add Annotations
+    for annotation in annotations {
+      map.addAnnotation(annotation)
+    }
     
     return map
   }

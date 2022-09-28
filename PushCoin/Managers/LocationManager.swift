@@ -30,6 +30,7 @@ extension LocationManager: CLLocationManagerDelegate {
     self.magneticHeading = CGFloat(newHeading.magneticHeading)
   }
   
+  
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     guard let location = locations.last else { return }
     

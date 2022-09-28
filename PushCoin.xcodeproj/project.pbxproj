@@ -17,6 +17,9 @@
 		1F061B3B28D9D3F9006C6D1E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F061B3A28D9D3F9006C6D1E /* ViewExtension.swift */; };
 		1F1E0C4228E392FA00E56B50 /* CameraVisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E0C4128E392FA00E56B50 /* CameraVisionView.swift */; };
 		1F1E0C4428E3939100E56B50 /* PointsVisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E0C4328E3939100E56B50 /* PointsVisionView.swift */; };
+		1F36050F28E3A838007C2FE2 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36050E28E3A838007C2FE2 /* CLLocationCoordinate2DExtension.swift */; };
+		1F36051128E49B46007C2FE2 /* CoinPointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36051028E49B46007C2FE2 /* CoinPointModel.swift */; };
+		1F36051528E4A7E7007C2FE2 /* CoinPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36051428E4A7E7007C2FE2 /* CoinPointView.swift */; };
 		1F8E0E7228C229BC00C65950 /* PushCoinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */; };
 		1F8E0E7428C229BC00C65950 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7328C229BC00C65950 /* ContentView.swift */; };
 		1F8E0E7628C229BD00C65950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E0E7528C229BD00C65950 /* Assets.xcassets */; };
@@ -78,6 +81,9 @@
 		1F061B3A28D9D3F9006C6D1E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		1F1E0C4128E392FA00E56B50 /* CameraVisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVisionView.swift; sourceTree = "<group>"; };
 		1F1E0C4328E3939100E56B50 /* PointsVisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsVisionView.swift; sourceTree = "<group>"; };
+		1F36050E28E3A838007C2FE2 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
+		1F36051028E49B46007C2FE2 /* CoinPointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinPointModel.swift; sourceTree = "<group>"; };
+		1F36051428E4A7E7007C2FE2 /* CoinPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinPointView.swift; sourceTree = "<group>"; };
 		1F8E0E6E28C229BC00C65950 /* PushCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8E0E7128C229BC00C65950 /* PushCoinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCoinApp.swift; sourceTree = "<group>"; };
 		1F8E0E7328C229BC00C65950 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -302,6 +308,7 @@
 			children = (
 				1F1E0C4128E392FA00E56B50 /* CameraVisionView.swift */,
 				1F1E0C4328E3939100E56B50 /* PointsVisionView.swift */,
+				1F36051428E4A7E7007C2FE2 /* CoinPointView.swift */,
 			);
 			path = Cam;
 			sourceTree = "<group>";
@@ -348,6 +355,7 @@
 				1F061B3A28D9D3F9006C6D1E /* ViewExtension.swift */,
 				1FAD2F5028E20072003F84F1 /* CGFloatExtension.swift */,
 				1FAD2F5528E25A6E003F84F1 /* DoubleExtension.swift */,
+				1F36050E28E3A838007C2FE2 /* CLLocationCoordinate2DExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				1FAD2F2E28DA57FA003F84F1 /* SectionModel.swift */,
+				1F36051028E49B46007C2FE2 /* CoinPointModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -474,6 +483,7 @@
 				1FDA22FE28C8A81400B2BD5B /* PageReducer.swift in Sources */,
 				1F061B2F28D0DE7D006C6D1E /* OTPVerificationView.swift in Sources */,
 				1F061B3528D3C12F006C6D1E /* AuthState.swift in Sources */,
+				1F36051528E4A7E7007C2FE2 /* CoinPointView.swift in Sources */,
 				1F8E0E9528C5208000C65950 /* RootReducer.swift in Sources */,
 				1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */,
 				1FAD2F3A28DBA53F003F84F1 /* MapCoordinator.swift in Sources */,
@@ -496,6 +506,8 @@
 				1FDA231328CA2C1B00B2BD5B /* Font.swift in Sources */,
 				1F061B3B28D9D3F9006C6D1E /* ViewExtension.swift in Sources */,
 				1FAD2F3C28DBA588003F84F1 /* MapView.swift in Sources */,
+				1F36051128E49B46007C2FE2 /* CoinPointModel.swift in Sources */,
+				1F36050F28E3A838007C2FE2 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				1FDA231528CA329700B2BD5B /* Geometry.swift in Sources */,
 				1F061B3928D8D2A2006C6D1E /* HomePageView.swift in Sources */,
 				1F1E0C4428E3939100E56B50 /* PointsVisionView.swift in Sources */,

@@ -20,7 +20,12 @@ struct MapPageView: View {
     let camera = MKMapCamera(lookingAtCenter: coordinate, fromDistance: 300, pitch: 0 , heading: magneticHeading)
     
     return ZStack {
-      MapView(startTracking: $startTracking, camera: camera, mapType: mapType)
+      MapView(
+        startTracking: $startTracking,
+        camera: camera,
+        mapType: mapType,
+        annotations: CoinPointModel.points.map { $0.mkPointAnotation }
+      )
         .edgesIgnoringSafeArea(.all)
         .gesture(TapGesture().onEnded {
           self.startTracking.toggle()

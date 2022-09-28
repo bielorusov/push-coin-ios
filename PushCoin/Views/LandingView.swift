@@ -27,6 +27,7 @@ struct LandingView_Previews: PreviewProvider {
   static var previews: some View {
     ZStack {
       LandingView()
+        .environmentObject(Core.initedStore)
     }
   }
 }
