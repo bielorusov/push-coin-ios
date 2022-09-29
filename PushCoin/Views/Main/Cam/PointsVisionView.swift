@@ -12,8 +12,8 @@ struct PointsVisionView: View {
   @ObservedObject private var locationManager = LocationManager()
   @ObservedObject private var motionManager = MotionManager()
   
-  let targetPoint = CoinPointModel.point.coordinate2D
-  let targetModel = CoinPointModel.point
+  let targetPoint = CoinPointModel.arsPoint.coordinate2D
+  let targetModel = CoinPointModel.arsPoint
   
   var body: some View {
     ZStack {

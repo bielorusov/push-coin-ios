@@ -25,6 +25,7 @@ struct MapView: UIViewRepresentable {
     map.setCamera(camera, animated: false)
     map.addAnnotations(annotations)
     map.mapType = mapType
+
         
     return map
   }

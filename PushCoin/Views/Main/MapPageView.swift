@@ -13,7 +13,7 @@ struct MapPageView: View {
   @State private var startTracking: Bool = true
   @State private var mapType: MKMapType = .standard // .hybrid
   
-  var body: some View {    
+  var body: some View {
     MapView(
       startTracking: $startTracking,
       camera: camera,
@@ -37,9 +37,9 @@ extension MapPageView {
   private var camera: MKMapCamera {
     MKMapCamera(
       lookingAtCenter: lookingAtCenter,
-      fromDistance: 100,
+      fromDistance: 0,
       pitch: 0 ,
-      heading: locationManager.magneticHeading
+      heading: locationManager.trueHeading
     )
   }
 }

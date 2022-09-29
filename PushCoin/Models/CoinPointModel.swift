@@ -46,19 +46,24 @@ struct CoinPointModel: Identifiable {
     CoinPointModel(title: "Dashka", subtitle: "Kurnatovskogo", coinType: "coin", amount: 777, lat: 50.484062, lon: 30.599765)
   }
   
+  static var arsPoint: CoinPointModel {
+    CoinPointModel(title: "Coin Point", subtitle: "Shari", coinType: "coin", amount: 333, lat: 50.443262, lon: 30.544960)
+  }
+  
   static var points: [CoinPointModel] {
     [
-      point,
-      CoinPointModel(title: "Arsenal 1", subtitle: "Near Balls 1", coinType: "coin", amount: 23, lat: 50.443480, lon: 30.544884),
-      CoinPointModel(title: "Arsenal 2", subtitle: "Near Balls 2", coinType: "coin", amount: 45, lat: 50.443254, lon: 30.544798),
-      CoinPointModel(title: "Arsenal 3", subtitle: "Near Balls 3", coinType: "coin",amount: 69, lat: 50.442964, lon: 30.544767),
-      CoinPointModel(title: "Arsenal 4", subtitle: "Alleya 1", coinType: "coin", amount: 123, lat: 50.442584, lon: 30.544261),
-      CoinPointModel(title: "Arsenal 5", subtitle: "Alleya 2", coinType: "coin",amount: 17, lat: 50.442458, lon: 30.544149),
-      CoinPointModel(title: "Arsenal 6", subtitle: "Alleya 3", coinType: "coin",amount: 2, lat: 50.442195, lon: 30.544037),
-      CoinPointModel(title: "Arsenal 7", subtitle: "Alleya 4", coinType: "coin", amount: 99, lat: 50.441912, lon: 30.543998),
-      CoinPointModel(title: "Arsenal 8", subtitle: "Alleya 5", coinType: "coin", amount: 42, lat: 50.441962, lon: 30.543630),
-      CoinPointModel(title: "Arsenal 9", subtitle: "Kiosk 1", coinType: "coin", amount: 31, lat: 50.442863, lon: 30.545067),
-      CoinPointModel(title: "Arsenal 10", subtitle: "Kiosk 2", coinType: "coin", amount: 16, lat: 50.442797, lon: 30.544945)
+      arsPoint
+//      point,
+//      CoinPointModel(title: "Arsenal 1", subtitle: "Near Balls 1", coinType: "coin", amount: 23, lat: 50.443480, lon: 30.544884),
+//      CoinPointModel(title: "Arsenal 2", subtitle: "Near Balls 2", coinType: "coin", amount: 45, lat: 50.443254, lon: 30.544798),
+//      CoinPointModel(title: "Arsenal 3", subtitle: "Near Balls 3", coinType: "coin",amount: 69, lat: 50.442964, lon: 30.544767),
+//      CoinPointModel(title: "Arsenal 4", subtitle: "Alleya 1", coinType: "coin", amount: 123, lat: 50.442584, lon: 30.544261),
+//      CoinPointModel(title: "Arsenal 5", subtitle: "Alleya 2", coinType: "coin",amount: 17, lat: 50.442458, lon: 30.544149),
+//      CoinPointModel(title: "Arsenal 6", subtitle: "Alleya 3", coinType: "coin",amount: 2, lat: 50.442195, lon: 30.544037),
+//      CoinPointModel(title: "Arsenal 7", subtitle: "Alleya 4", coinType: "coin", amount: 99, lat: 50.441912, lon: 30.543998),
+//      CoinPointModel(title: "Arsenal 8", subtitle: "Alleya 5", coinType: "coin", amount: 42, lat: 50.441962, lon: 30.543630),
+//      CoinPointModel(title: "Arsenal 9", subtitle: "Kiosk 1", coinType: "coin", amount: 31, lat: 50.442863, lon: 30.545067),
+//      CoinPointModel(title: "Arsenal 10", subtitle: "Kiosk 2", coinType: "coin", amount: 16, lat: 50.442797, lon: 30.544945)
     ]
   }
 }
