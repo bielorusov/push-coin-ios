@@ -12,7 +12,8 @@ class LocationManager: NSObject, ObservableObject {
   private let locationManager = CLLocationManager()
   
   @Published var location: CLLocation? = nil
-  @Published var magneticHeading: CGFloat = 0.0
+  @Published var magneticHeading: CLLocationDirection = 0.0
+  @Published var trueHeading: CLLocationDirection = 0.0
   
   override init() {
     super.init()
@@ -26,8 +27,41 @@ class LocationManager: NSObject, ObservableObject {
 }
 
 extension LocationManager: CLLocationManagerDelegate {
+  var coordinate2D: CLLocationCoordinate2D {
+    let location = self.location != nil ? self.location : CLLocation()
+    let coordinate = location!.coordinate
+    
+    return CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+  }
+  
+  var altitude: CLLocationDistance {
+    let location = self.location != nil ? self.location : CLLocation()
+    let altitude = location!.altitude
+    
+    return altitude
+  }
+  
+//  var magneticHeading: CLLocationDirection {
+////    let hheading = self.heading != nil ? self.heading : CLHeading()
+////    let heading = self.heading != nil ? self.heading : CLHeading()
+////    let magneticHeading = heading?.magneticHeading != nil ? heading.magneticHeading : CLLocationDirection()
+//
+//    return heading.magneticHeading
+//  }
+  
+//  func currentLocationCoordinate() -> CLLocationCoordinate2D {
+//    let location = self.location != nil ? self.location : CLLocation()
+//    let coordinate = location!.coordinate
+//
+//    return CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+//  }
+  
+  
   func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-    self.magneticHeading = CGFloat(newHeading.magneticHeading)
+    DispatchQueue.main.async {
+      self.trueHeading = newHeading.trueHeading
+      self.magneticHeading = newHeading.magneticHeading
+    }
   }
   
   

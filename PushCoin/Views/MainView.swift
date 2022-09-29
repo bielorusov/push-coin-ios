@@ -36,7 +36,6 @@ struct MainView: View {
         Spacer()
         HoleTapBarView()
       }
-      .edgesIgnoringSafeArea(.all)
     }
   }
 }

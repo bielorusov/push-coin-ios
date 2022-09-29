@@ -10,10 +10,10 @@ import SwiftUI
 struct CamPageView: View {
   var body: some View {
     ZStack {
-      CameraVisionView()
-        .ignoresSafeArea(.all, edges: .all)
+//      CameraVisionView()
+//        .ignoresSafeArea(.all, edges: .all)
       PointsVisionView()
-        .ignoresSafeArea(.all, edges: .all)
+        .ignoresSafeArea(.all, edges: .all)      
     }
   }
 }

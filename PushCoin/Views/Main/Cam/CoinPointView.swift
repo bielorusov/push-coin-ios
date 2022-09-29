@@ -9,17 +9,18 @@ import SwiftUI
 import MapKit
 
 struct CoinPointView: View {
-    let location: CLLocation
+    let coinPointM: CoinPointModel
+//    let coordinate: CLLocationCoordinate2D
     let gravityZ: Double
-    let magneticHeading: Double
+//    let magneticHeading: Double
   
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-//struct CoinPointView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CoinPointView()
-//    }
+
+//extension CoinPointView {
+//
 //}
+

@@ -7,7 +7,7 @@
 
 import MapKit
 
-final class MapCoordinator: NSObject, MKMapViewDelegate {
+final class MapViewCoordinator: NSObject, MKMapViewDelegate {
   var parentMapView: MapView
   
   init(_ parentMapView: MapView) {

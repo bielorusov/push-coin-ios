@@ -21,25 +21,23 @@ struct MapView: UIViewRepresentable {
     map.showsCompass = true
     map.showsScale = true
     map.isRotateEnabled = true
+    map.setUserTrackingMode(.followWithHeading, animated: true)
+    map.setCamera(camera, animated: false)
+    map.addAnnotations(annotations)
     map.mapType = mapType
-    map.setUserTrackingMode(.followWithHeading, animated: false)
-    map.setCamera(camera, animated: true)
-    
-    // Add Annotations
-    for annotation in annotations {
-      map.addAnnotation(annotation)
-    }
-    
+        
     return map
   }
   
-  func makeCoordinator() -> MapCoordinator {
-    MapCoordinator(self)
+  func makeCoordinator() -> MapViewCoordinator {
+    MapViewCoordinator(self)
   }
   
   func updateUIView(_ uiView: MKMapView, context: Context) {
+//    uiView.setCamera(camera, animated: false)
+//    uiView.removeAnnotations(annotations)
+    uiView.addAnnotations(annotations)
     uiView.mapType = mapType
-    
     print("FOLLOWING: \(uiView.userTrackingMode == MKUserTrackingMode.followWithHeading ? "TRUE" : "FALSE")")
   }
 }

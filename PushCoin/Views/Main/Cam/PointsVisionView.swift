@@ -10,50 +10,49 @@ import MapKit
 
 struct PointsVisionView: View {
   @ObservedObject private var locationManager = LocationManager()
-  @ObservedObject private var motionManager: MotionManager = MotionManager()
+  @ObservedObject private var motionManager = MotionManager()
   
-//  let targetPoint = CLLocationCoordinate2D(latitude: 50.483184, longitude: 30.593733)
-//  let targetPoint = CLLocationCoordinate2D(latitude: 50.487512, longitude: 30.603002)
-//  let targetPoint = CLLocationCoordinate2D(latitude: 50.487963, longitude: 30.607895)
-  
-  let targetPoint = CoinPointModel.points[0].coordinate2D
+  let targetPoint = CoinPointModel.point.coordinate2D
+  let targetModel = CoinPointModel.point
   
   var body: some View {
     ZStack {
       if (showCoinPoint()) {
         CoinSequenceView(coinType: "coin")
-          .frame(width: 200, height: 200)
+          .frame(width: 100, height: 100)
           .offset(x: calcXOffset(), y: calcYOffset())
           .animation(.default, value: self.locationManager.magneticHeading)
           .animation(.default, value: self.motionManager.gravityZ)
       }
       
-//      Text("Magnetic Heading: \(locationManager.magneticHeading)")
-//
-//      Text("Bearing: \(getBearing())")
-//        .offset(y: 50)
-//
-//      Text("DIFF: \(locationManager.magneticHeading - getBearing())")
-//        .offset(y: 100)
+      VStack(alignment: .leading) {
+        Text("SCR_W: \(UIScreen.main.bounds.width)")
+        Text("SCR_H: \(UIScreen.main.bounds.height)")
+        Text("Altitude: \(locationManager.altitude.rounded(to: 2))")
+        Text("Distance: \(calcDistance().rounded(to: 2))")
+        Text("Bearing: \(calcBearing().rounded(to: 2))")
+        Text("Mag Heading: \(locationManager.magneticHeading.rounded(to: 2))")
+        Text("DIFF: \(calcDiff().rounded(to: 2))")
+      }
     }
   }
 }
 
-extension PointsVisionView {  
-  private func getBearing() -> Double {
-    let location = self.locationManager.location != nil ? self.locationManager.location : CLLocation()
-    let coordinate = location!.coordinate
-    let currentLocation = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-    
-    return currentLocation.bearing(location: targetPoint)
+extension PointsVisionView {
+  private func calcDistance() -> Double {
+    return targetPoint.distance(from: locationManager.coordinate2D)
+  }
+  
+  private func calcBearing() -> Double {
+    return locationManager.coordinate2D.bearing(to: targetPoint)
+  }
+  
+  private func calcDiff() -> Double {
+    return calcBearing() - locationManager.trueHeading
   }
   
   private func showCoinPoint() -> Bool {
-    let direct = locationManager.magneticHeading - getBearing()
-    // let radDirect = locationManager.magneticHeading.degToRad - .pi
-    // return ((-.pi/4)...(.pi/4)).contains(radDirect)
-    
-    return (-45...45).contains(direct)
+    return (-60...60).contains(calcDiff())
   }
   
   private func calcYOffset() -> CGFloat {
@@ -64,12 +63,10 @@ extension PointsVisionView {
   }
   
   private func calcXOffset() -> CGFloat {
-    let direct = locationManager.magneticHeading - getBearing()
-    
-    return -1 * (((.pi * (UIScreen.main.bounds.width + 100))/2) * sin(direct.degToRad)).rounded(to: 1)
+//    return  (((.pi * (UIScreen.main.bounds.width + 100))/2) * sin(calcDiff().degToRad)).rounded(to: 1)
+        return  (UIScreen.main.bounds.width * sin(calcDiff().degToRad)).rounded(to: 1)
   }
 }
-
 
 struct PointsVisionView_Previews: PreviewProvider {
   static var previews: some View {
@@ -78,13 +75,25 @@ struct PointsVisionView_Previews: PreviewProvider {
 }
 
 
-//      Text("x: \(motionManager.roll.rounded(to: 2)) y: \(motionManager.pitch.rounded(to: 2)) z: \(motionManager.yaw.rounded(to: 2))")
 
-//      Text("x: \(motionManager.gravityX.rounded(to: 2)) y: \(motionManager.gravityY.rounded(to: 2)) z: \(motionManager.gravityZ.rounded(to: 2))")
-//        .offset(y: 60)
+//      Text("Bearing: \(CLLocationCoordinate2D(latitude: 50.484495, longitude: 30.602959).bearing(to: CLLocationCoordinate2D(latitude: 50.483402, longitude: 30.593668)))")
+//        .offset(y: 120)
+//
+//      Text("NewBearing: \(CLLocationCoordinate2D(latitude: 50.484495, longitude: 30.602959).bearingNew(location: CLLocationCoordinate2D(latitude: 50.483402, longitude: 30.593668)))")
+//        .offset(y: 140)
 
-//      Text("\(calcXOffset()) => \(showCoinPoint() ? "TRUE" : "FALSE")")
-//      Text("\(locationManager.magneticHeading.degToRad)")
-//        .offset(y: 60)
+//      Text("Magnetic Heading: \(locationManager.magneticHeading)")
+//
+//      Text("Bearing: \(getBearing())")
+//        .offset(y: 50)
+//
+//      Text("DIFF: \(locationManager.magneticHeading - getBearing())")
+//        .offset(y: 100)
 
-//      Text("\(locationManager.magneticHeading.rounded() - 180)")
+//  private var currentLocation: CLLocationCoordinate2D
+  
+//  let targetPoint = CLLocationCoordinate2D(latitude: 50.483184, longitude: 30.593733)
+//  let targetPoint = CLLocationCoordinate2D(latitude: 50.487512, longitude: 30.603002)
+//  let targetPoint = CLLocationCoordinate2D(latitude: 50.487963, longitude: 30.607895)
+//  let target = CoinPointModel.points[0]
+//Text("True Heading: \(locationManager.trueHeading)")

@@ -131,6 +131,8 @@ struct MapCircleButtonView: View {
         image: Image("MapIcon")
       )
     }
+    .offset(x: 0, y: -18)
+
   }
 }
 
@@ -145,6 +147,7 @@ struct CamCircleButtonView: View {
         image: Image(systemName: "camera.viewfinder")
       )
     }
+    .offset(x: 0, y: -18)
   }
 }
 
@@ -164,7 +167,7 @@ struct CircleButtonView: View {
         .foregroundColor(.white)
         .frame(width: 56, height: 56, alignment: .center)
       
-    }.offset(x: 0, y: -18)
+    }
   }
 }
 

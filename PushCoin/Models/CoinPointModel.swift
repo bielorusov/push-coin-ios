@@ -26,11 +26,11 @@ struct CoinPointModel: Identifiable {
   }
 
   func bearing(from point: CLLocationCoordinate2D) -> Double {
-    return point.bearing(location: self.coordinate2D)
+    return point.bearing(to: self.coordinate2D)
   }
   
-  func distance(from point: CLLocation) -> Double {
-    return coordinate.distance(from: point)
+  func distance(from point: CLLocationCoordinate2D) -> Double {
+    return coordinate2D.distance(from: point)
   }
 
   var mkPointAnotation: MKPointAnnotation {
@@ -42,8 +42,13 @@ struct CoinPointModel: Identifiable {
     return point
   }
   
+  static var point: CoinPointModel {
+    CoinPointModel(title: "Dashka", subtitle: "Kurnatovskogo", coinType: "coin", amount: 777, lat: 50.484062, lon: 30.599765)
+  }
+  
   static var points: [CoinPointModel] {
     [
+      point,
       CoinPointModel(title: "Arsenal 1", subtitle: "Near Balls 1", coinType: "coin", amount: 23, lat: 50.443480, lon: 30.544884),
       CoinPointModel(title: "Arsenal 2", subtitle: "Near Balls 2", coinType: "coin", amount: 45, lat: 50.443254, lon: 30.544798),
       CoinPointModel(title: "Arsenal 3", subtitle: "Near Balls 3", coinType: "coin",amount: 69, lat: 50.442964, lon: 30.544767),

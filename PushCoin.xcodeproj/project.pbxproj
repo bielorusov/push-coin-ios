@@ -38,7 +38,7 @@
 		1FAD2F3328DA5A15003F84F1 /* HomeSectionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3228DA5A15003F84F1 /* HomeSectionItemView.swift */; };
 		1FAD2F3528DA5A9D003F84F1 /* HomeSectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3428DA5A9D003F84F1 /* HomeSectionDetailView.swift */; };
 		1FAD2F3728DA5B5D003F84F1 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3628DA5B5D003F84F1 /* HomeContentView.swift */; };
-		1FAD2F3A28DBA53F003F84F1 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3928DBA53E003F84F1 /* MapCoordinator.swift */; };
+		1FAD2F3A28DBA53F003F84F1 /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3928DBA53E003F84F1 /* MapViewCoordinator.swift */; };
 		1FAD2F3C28DBA588003F84F1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3B28DBA588003F84F1 /* MapView.swift */; };
 		1FAD2F3E28DBA607003F84F1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3D28DBA607003F84F1 /* LocationManager.swift */; };
 		1FAD2F4028DBAD57003F84F1 /* MapPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD2F3F28DBAD57003F84F1 /* MapPageView.swift */; };
@@ -104,7 +104,7 @@
 		1FAD2F3228DA5A15003F84F1 /* HomeSectionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionItemView.swift; sourceTree = "<group>"; };
 		1FAD2F3428DA5A9D003F84F1 /* HomeSectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionDetailView.swift; sourceTree = "<group>"; };
 		1FAD2F3628DA5B5D003F84F1 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
-		1FAD2F3928DBA53E003F84F1 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
+		1FAD2F3928DBA53E003F84F1 /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
 		1FAD2F3B28DBA588003F84F1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1FAD2F3D28DBA607003F84F1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1FAD2F3F28DBAD57003F84F1 /* MapPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPageView.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 		1FAD2F3828DBA525003F84F1 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				1FAD2F3928DBA53E003F84F1 /* MapCoordinator.swift */,
+				1FAD2F3928DBA53E003F84F1 /* MapViewCoordinator.swift */,
 				1FAD2F3B28DBA588003F84F1 /* MapView.swift */,
 			);
 			path = Map;
@@ -486,7 +486,7 @@
 				1F36051528E4A7E7007C2FE2 /* CoinPointView.swift in Sources */,
 				1F8E0E9528C5208000C65950 /* RootReducer.swift in Sources */,
 				1FDA22F628C77CD900B2BD5B /* Redux.swift in Sources */,
-				1FAD2F3A28DBA53F003F84F1 /* MapCoordinator.swift in Sources */,
+				1FAD2F3A28DBA53F003F84F1 /* MapViewCoordinator.swift in Sources */,
 				1FAD2F2F28DA57FA003F84F1 /* SectionModel.swift in Sources */,
 				1FDA232628CF44D400B2BD5B /* SignInWithEmailView.swift in Sources */,
 				1FAD2F4928DCFB59003F84F1 /* Shapes.swift in Sources */,
