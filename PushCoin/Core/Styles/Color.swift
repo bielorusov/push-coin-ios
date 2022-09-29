@@ -12,6 +12,7 @@ extension Color {
     static let arc = Color(0x006DD2)
     static let shape = Color(0xD9D9D9)
     static let bg = Color(0x222741)
+    static let gold = Color(0xa67c00)
   }
   
   enum Form {

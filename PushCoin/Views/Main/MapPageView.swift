@@ -23,9 +23,7 @@ struct MapPageView: View {
       .edgesIgnoringSafeArea(.all)
       .gesture(TapGesture().onEnded {
         self.startTracking.toggle()
-        
       })
-    
   }
 }
 

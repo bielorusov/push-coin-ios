@@ -12,20 +12,34 @@ struct PointsVisionView: View {
   @ObservedObject private var locationManager = LocationManager()
   @ObservedObject private var motionManager = MotionManager()
   
+  let minDist = 3.0
+  let maxDist = 100.0
+  
+  let minFrame = 30.0
+  let maxFrame = 200.0
+  
   let targetPoint = CoinPointModel.arsPoint.coordinate2D
   let targetModel = CoinPointModel.arsPoint
   
   var body: some View {
     ZStack {
       if (showCoinPoint()) {
-        CoinSequenceView(coinType: "coin")
-          .frame(width: 100, height: 100)
-          .offset(x: calcXOffset(), y: calcYOffset())
-          .animation(.default, value: self.locationManager.magneticHeading)
-          .animation(.default, value: self.motionManager.gravityZ)
+        VStack(spacing: 0) {
+          //          Text("\(targetModel.amount.asAmountString) $")
+          Text("\(rate())")
+            .font(.subheadline)
+            .fontWeight(.bold)
+            .foregroundColor(Color.App.gold)
+          CoinSequenceView(coinType: "coin")
+            .frame(width: calcSize(), height: calcSize())
+        }
+        .animation(.default, value: self.locationManager.magneticHeading)
+        .animation(.default, value: self.motionManager.gravityZ)
+        .offset(x: calcXOffset(), y: calcYOffset())
       }
       
       VStack(alignment: .leading) {
+        Text("Rate: \(rate())")
         Text("SCR_W: \(UIScreen.main.bounds.width)")
         Text("SCR_H: \(UIScreen.main.bounds.height)")
         Text("Altitude: \(locationManager.altitude.rounded(to: 2))")
@@ -39,32 +53,61 @@ struct PointsVisionView: View {
 }
 
 extension PointsVisionView {
+  private func calcSize() -> Double {
+    let size = maxFrame * rate()
+    
+    return size < minFrame ? minFrame : size
+  }
+  
+  private func rate() -> Double {
+    let distance = calcDistance()
+    
+    switch distance {
+      case 0..<minDist:
+        return 1
+      case minDist...maxDist:
+        return 1 - distance/maxDist
+      default:
+        return 0
+    }
+  }
+  
   private func calcDistance() -> Double {
-    return targetPoint.distance(from: locationManager.coordinate2D)
+    let distance = targetPoint.distance(from: locationManager.coordinate2D)
+    
+    return distance
   }
   
   private func calcBearing() -> Double {
-    return locationManager.coordinate2D.bearing(to: targetPoint)
+    let bearing =  locationManager.coordinate2D.bearing(to: targetPoint)
+    
+    return bearing
   }
   
   private func calcDiff() -> Double {
-    return calcBearing() - locationManager.trueHeading
+    let diff = calcBearing() - locationManager.trueHeading
+    
+    return diff
   }
   
   private func showCoinPoint() -> Bool {
-    return (-60...60).contains(calcDiff())
+    let distance = calcDistance()
+    
+    return distance <= maxDist && (-60...60).contains(calcDiff())
   }
   
   private func calcYOffset() -> CGFloat {
     let screenHeight = UIScreen.main.bounds.height
     let gravityZ = CGFloat(motionManager.gravityZ)
+    let yOffset = (screenHeight * gravityZ).rounded(to: 1)
     
-    return (screenHeight * gravityZ).rounded(to: 1)
+    return yOffset
   }
   
-  private func calcXOffset() -> CGFloat {
-//    return  (((.pi * (UIScreen.main.bounds.width + 100))/2) * sin(calcDiff().degToRad)).rounded(to: 1)
-        return  (UIScreen.main.bounds.width * sin(calcDiff().degToRad)).rounded(to: 1)
+  private func calcXOffset() -> CGFloat {  
+    let yOffset = (UIScreen.main.bounds.width * sin(calcDiff().degToRad)).rounded(to: 1)
+    
+    return yOffset
   }
 }
 
@@ -91,7 +134,7 @@ struct PointsVisionView_Previews: PreviewProvider {
 //        .offset(y: 100)
 
 //  private var currentLocation: CLLocationCoordinate2D
-  
+
 //  let targetPoint = CLLocationCoordinate2D(latitude: 50.483184, longitude: 30.593733)
 //  let targetPoint = CLLocationCoordinate2D(latitude: 50.487512, longitude: 30.603002)
 //  let targetPoint = CLLocationCoordinate2D(latitude: 50.487963, longitude: 30.607895)

@@ -13,7 +13,7 @@ struct CoinPointModel: Identifiable {
   var title: String
   var subtitle: String
   var coinType: String
-  var amount: Float
+  var amount: Double
   var lat: Double
   var lon: Double
   
@@ -47,7 +47,7 @@ struct CoinPointModel: Identifiable {
   }
   
   static var arsPoint: CoinPointModel {
-    CoinPointModel(title: "Coin Point", subtitle: "Shari", coinType: "coin", amount: 333, lat: 50.443262, lon: 30.544960)
+    CoinPointModel(title: "Coin Point", subtitle: "Shari", coinType: "coin", amount: 33.74, lat: 50.443262, lon: 30.544960)
   }
   
   static var points: [CoinPointModel] {

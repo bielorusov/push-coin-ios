@@ -18,4 +18,8 @@ extension Double {
     
     return (self * divisor).rounded() / divisor
   }
+  
+  var asAmountString: String {
+    String(format: "%.2f", self)
+  }
 }

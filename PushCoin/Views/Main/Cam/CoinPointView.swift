@@ -10,8 +10,10 @@ import MapKit
 
 struct CoinPointView: View {
     let coinPointM: CoinPointModel
-//    let coordinate: CLLocationCoordinate2D
     let gravityZ: Double
+  
+//    let coordinate: CLLocationCoordinate2D
+
 //    let magneticHeading: Double
   
     var body: some View {
