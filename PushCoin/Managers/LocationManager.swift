@@ -22,7 +22,7 @@ class LocationManager: NSObject, ObservableObject {
     self.locationManager.distanceFilter = kCLDistanceFilterNone
     self.locationManager.requestWhenInUseAuthorization()
     self.locationManager.startUpdatingLocation()
-    self.locationManager.startUpdatingHeading()
+    self.locationManager.startUpdatingHeading()  
   }
 }
 

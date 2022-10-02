@@ -12,102 +12,53 @@ struct PointsVisionView: View {
   @ObservedObject private var locationManager = LocationManager()
   @ObservedObject private var motionManager = MotionManager()
   
-  let minDist = 3.0
-  let maxDist = 100.0
+  @State private var maxDist: Double = 50.0
   
-  let minFrame = 30.0
-  let maxFrame = 200.0
-  
-  let targetPoint = CoinPointModel.arsPoint.coordinate2D
-  let targetModel = CoinPointModel.arsPoint
+  let minDist = 10.0
+//  let maxDist = 50.0
   
   var body: some View {
+    let countVisiblePoints = sortedCoinPoints.count - 1
+    
     ZStack {
-      if (showCoinPoint()) {
-        VStack(spacing: 0) {
-          //          Text("\(targetModel.amount.asAmountString) $")
-          Text("\(rate())")
-            .font(.subheadline)
-            .fontWeight(.bold)
-            .foregroundColor(Color.App.gold)
-          CoinSequenceView(coinType: "coin")
-            .frame(width: calcSize(), height: calcSize())
+      if sortedCoinPoints.count > 0 {
+        ForEach(0...countVisiblePoints, id: \.self) {
+          CoinPointView(
+            coinPointM: sortedCoinPoints[$0],
+            motionManager: motionManager,
+            locationManager: locationManager,
+            minDist: minDist,
+            maxDist: $maxDist,
+            isNearest: $0 == countVisiblePoints
+          )
         }
-        .animation(.default, value: self.locationManager.magneticHeading)
-        .animation(.default, value: self.motionManager.gravityZ)
-        .offset(x: calcXOffset(), y: calcYOffset())
       }
       
-      VStack(alignment: .leading) {
-        Text("Rate: \(rate())")
-        Text("SCR_W: \(UIScreen.main.bounds.width)")
-        Text("SCR_H: \(UIScreen.main.bounds.height)")
-        Text("Altitude: \(locationManager.altitude.rounded(to: 2))")
-        Text("Distance: \(calcDistance().rounded(to: 2))")
-        Text("Bearing: \(calcBearing().rounded(to: 2))")
-        Text("Mag Heading: \(locationManager.magneticHeading.rounded(to: 2))")
-        Text("DIFF: \(calcDiff().rounded(to: 2))")
-      }
+      VStack {
+        Spacer()
+        Text("Distance: \(maxDist.asAmountString) m.")
+            .foregroundColor(.white)
+        Text("\(sortedCoinPoints.count) coins found.")
+            .foregroundColor(.white)
+        
+        Slider(value: $maxDist, in: 0...500)
+      }.offset(y: -120)
     }
   }
 }
 
 extension PointsVisionView {
-  private func calcSize() -> Double {
-    let size = maxFrame * rate()
+  private var sortedCoinPoints: [CoinPointModel] {
+    let currentLocation = locationManager.coordinate2D
+    let points = CoinPointModel.points
     
-    return size < minFrame ? minFrame : size
-  }
-  
-  private func rate() -> Double {
-    let distance = calcDistance()
-    
-    switch distance {
-      case 0..<minDist:
-        return 1
-      case minDist...maxDist:
-        return 1 - distance/maxDist
-      default:
-        return 0
+    let sortedCoins = points.filter { coinM in
+      (0...maxDist).contains(coinM.distance(from: currentLocation))
+    }.sorted {
+      $0.distance(from: currentLocation) > $1.distance(from: currentLocation)
     }
-  }
-  
-  private func calcDistance() -> Double {
-    let distance = targetPoint.distance(from: locationManager.coordinate2D)
     
-    return distance
-  }
-  
-  private func calcBearing() -> Double {
-    let bearing =  locationManager.coordinate2D.bearing(to: targetPoint)
-    
-    return bearing
-  }
-  
-  private func calcDiff() -> Double {
-    let diff = calcBearing() - locationManager.trueHeading
-    
-    return diff
-  }
-  
-  private func showCoinPoint() -> Bool {
-    let distance = calcDistance()
-    
-    return distance <= maxDist && (-60...60).contains(calcDiff())
-  }
-  
-  private func calcYOffset() -> CGFloat {
-    let screenHeight = UIScreen.main.bounds.height
-    let gravityZ = CGFloat(motionManager.gravityZ)
-    let yOffset = (screenHeight * gravityZ).rounded(to: 1)
-    
-    return yOffset
-  }
-  
-  private func calcXOffset() -> CGFloat {  
-    let yOffset = (UIScreen.main.bounds.width * sin(calcDiff().degToRad)).rounded(to: 1)
-    
-    return yOffset
+    return sortedCoins
   }
 }
 
