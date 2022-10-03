@@ -12,8 +12,10 @@ struct CoinPointView: View {
   let coinPointM: CoinPointModel
   let motionManager: MotionManager
   let locationManager: LocationManager
+  
   let minDist: Double
   @Binding var maxDist: Double
+//  let maxDist: Double
   
   let minFrame = 30.0
   let maxFrame = 200.0
@@ -21,7 +23,12 @@ struct CoinPointView: View {
   let minFont = 3.0
   let maxFont = 24.0
   
+  let maxPVAngle: Double = 120 // Max Pitch view angle (delta Tangag)
+  let maxBVAngle: Double = 120 // Max Bearing view angle (delta Azimuth)
+  
   let isNearest: Bool
+  
+  let screenHeight = UIScreen.main.bounds.height
   
   var body: some View {
     ZStack {
@@ -31,10 +38,15 @@ struct CoinPointView: View {
             .font(Font.appFont(size: calcFontSize()))
             .fontWeight(.bold)
             .foregroundColor(.white)
+          
+//          Text("\(deltaHeightOffset.asAmountString)")
+//            .font(Font.appFont(size: calcFontSize()))
+//          Text("El: \(coinPointM.elevation.asAmountString) m.")
+//              .font(Font.appFont(size: calcFontSize()))
 //          Text("Distance: \(calcDistance().asAmountString)")
 //            .font(Font.appFont(size: calcFontSize()))
+          
           getCoinView(coinType: coinPointM.coinType)
-            .opacity(isNearest ? 1 : rate())
             .frame(width: calcSize(), height: calcSize())
         }
         .animation(.default, value: locationManager.magneticHeading)
@@ -49,19 +61,21 @@ extension CoinPointView {
   
   @ViewBuilder
   func getCoinView(coinType: String) -> some View {
-//    let distance = calcDistance()
-    let imageName = String(format: "\(coinType)_%05d", 10)
     if isNearest {
+      // Rotate coin
         CoinSequenceView(coinType: coinType)
     } else {
-      // Rotate by Azimuth Only
-      Image(imageName).resizable()
+      // Show static coin with opacity by rate
+      Image(String(format: "\(coinType)_%05d", 10))
+        .resizable()
+        .opacity(isNearest ? 1 : rate())
     }
-//    if distance < minDist {
-//      CoinSequenceView(coinType: coinType)
-//    } else {
-//      Image(imageName).resizable()
-//    }
+  }
+  
+  private var deltaHeightOffset: Double {
+    let delta = (2 * calcDistance() * tan((maxPVAngle/2).degToRad) * (locationManager.altitude -  coinPointM.height - coinPointM.alt)) / screenHeight
+    
+    return delta
   }
   
   private func calcFontSize() -> CGFloat {
@@ -116,7 +130,7 @@ extension CoinPointView {
   private func calcYOffset() -> CGFloat {
     let screenHeight = UIScreen.main.bounds.height
     let gravityZ = CGFloat(motionManager.gravityZ)
-    let yOffset = (screenHeight * gravityZ).rounded(to: 1)
+    let yOffset = ((screenHeight * gravityZ) + deltaHeightOffset).rounded(to: 1)
     
     return yOffset
   }

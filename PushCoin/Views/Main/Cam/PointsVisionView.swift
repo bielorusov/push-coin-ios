@@ -12,13 +12,13 @@ struct PointsVisionView: View {
   @ObservedObject private var locationManager = LocationManager()
   @ObservedObject private var motionManager = MotionManager()
   
-  @State private var maxDist: Double = 50.0
+  @State private var maxDist: Double = 100.0
   
   let minDist = 10.0
 //  let maxDist = 50.0
   
   var body: some View {
-    let countVisiblePoints = sortedCoinPoints.count - 1
+  let countVisiblePoints = sortedCoinPoints.count - 1
     
     ZStack {
       if sortedCoinPoints.count > 0 {
@@ -29,6 +29,8 @@ struct PointsVisionView: View {
             locationManager: locationManager,
             minDist: minDist,
             maxDist: $maxDist,
+//            minDist: sortedCoinPoints[0].distance(from: locationManager.coordinate2D),
+//            maxDist: sortedCoinPoints[countVisiblePoints].distance(from: locationManager.coordinate2D),
             isNearest: $0 == countVisiblePoints
           )
         }
@@ -43,6 +45,11 @@ struct PointsVisionView: View {
         
         Slider(value: $maxDist, in: 0...500)
       }.offset(y: -120)
+      
+//      VStack {
+//        Text("Alt: \(locationManager.altitude.asAmountString) m.")
+//        Text("GravityZ: \(motionManager.gravityZ)")        
+//      }
     }
   }
 }
