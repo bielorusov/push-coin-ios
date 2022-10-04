@@ -12,9 +12,9 @@ struct PointsVisionView: View {
   @ObservedObject private var locationManager = LocationManager()
   @ObservedObject private var motionManager = MotionManager()
   
-  @State private var maxDist: Double = 100.0
+  @State private var maxDist: Double = 50.0
   
-  let minDist = 10.0
+  let minDist: Double = 3.0
 //  let maxDist = 50.0
   
   var body: some View {
@@ -38,6 +38,9 @@ struct PointsVisionView: View {
       
       VStack {
         Spacer()
+        Text("ALT: \(locationManager.altitude)")
+            .foregroundColor(.white)
+        
         Text("Distance: \(maxDist.asAmountString) m.")
             .foregroundColor(.white)
         Text("\(sortedCoinPoints.count) coins found.")
