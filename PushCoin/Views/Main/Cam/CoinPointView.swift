@@ -14,17 +14,14 @@ struct CoinPointView: View {
   
   let minDist: Double
   @Binding var maxDist: Double
-//  let maxDist: Double
+  let isNearest: Bool
+  let screenHeight = UIScreen.main.bounds.height
+  let screenWidth = UIScreen.main.bounds.width
   
   let minFrame = 30.0
   let maxFrame = 130.0
-  
   let minFont = 10.0
   let maxFont = 15.0
-  let isNearest: Bool
-  
-  let screenHeight = UIScreen.main.bounds.height
-  let screenWidth = UIScreen.main.bounds.width
   
   var body: some View {
     ZStack {
@@ -61,7 +58,6 @@ struct CoinPointView: View {
 }
 
 extension CoinPointView {
-  
   @ViewBuilder
   func getCoinView(coinType: String) -> some View {
     if isNearest {
