@@ -27,19 +27,15 @@ struct CoinPointView: View {
     ZStack {
       if (isVisible) {
         VStack(spacing: 0) {
-//          Text("\(coinPointM.title)")
-//            .font(Font.appFont(size: calcFontSize()))
-//            .fontWeight(.bold)
-//            .foregroundColor(.white)
+          Text("\(coinPointM.title)")
+            .font(Font.appFont(size: fontSize))
+            .fontWeight(.bold)
+            .foregroundColor(.white)
           ZStack {
             getCoinView(coinType: coinPointM.coinType)
               .frame(width: frameSize, height: frameSize)
             
             VStack {
-              Text("\(coinPointM.title)")
-                .font(Font.appFont(size: fontSize))
-                .foregroundColor(.black)
-                .fontWeight(.semibold)
               Text("\(distance2D.asAmountString)")
                 .font(Font.appFont(size: fontSize))
                 .foregroundColor(.black)
