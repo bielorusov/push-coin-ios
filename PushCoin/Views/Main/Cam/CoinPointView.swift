@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import MapKit
 
 struct CoinPointView: View {
   let coinPointM: CoinPointModel
@@ -20,15 +19,12 @@ struct CoinPointView: View {
   let minFrame = 30.0
   let maxFrame = 130.0
   
-  let minFont = 3.0
-  let maxFont = 24.0
-  
-  let maxPVAngle: Double = 120 // Max Pitch view angle (delta Tangag)
-  let maxBVAngle: Double = 120 // Max Bearing view angle (delta Azimuth)
-  
+  let minFont = 10.0
+  let maxFont = 15.0
   let isNearest: Bool
   
   let screenHeight = UIScreen.main.bounds.height
+  let screenWidth = UIScreen.main.bounds.width
   
   var body: some View {
     ZStack {
@@ -38,40 +34,23 @@ struct CoinPointView: View {
 //            .font(Font.appFont(size: calcFontSize()))
 //            .fontWeight(.bold)
 //            .foregroundColor(.white)
-          
-//          Text("\(deltaHeightOffset.asAmountString)")
-//            .font(Font.appFont(size: calcFontSize()))
-//          Text("El: \(coinPointM.elevation.asAmountString) m.")
-//              .font(Font.appFont(size: calcFontSize()))
-//          Text("Distance: \(calcDistance().asAmountString)")
-//            .font(Font.appFont(size: calcFontSize()))
-          
-          Text("DIST: \(distance2D.asAmountString)")
-            .font(Font.appFont(size: fontSize))
-            .foregroundColor(.white)
-          
-          getCoinView(coinType: coinPointM.coinType)
-            .frame(width: frameSize, height: frameSize)
-          
-          Text("P2PD: \(distanceP2P.asAmountString)")
-            .font(Font.appFont(size: fontSize))
-            .foregroundColor(.red)
-          
-          Text("DH Offset: \(deltaHeightOffset.asAmountString)")
-            .font(Font.appFont(size: fontSize))
-            .foregroundColor(.green)
-//          Text("Alt: \(locationManager.altitude.asAmountString) m.")
-//            .font(Font.appFont(size: fontSize))
-//            .foregroundColor(.red)
-          Text("FullH: \(coinPointM.fullHeight.asAmountString) m.")
-            .font(Font.appFont(size: fontSize))
-            .foregroundColor(.red)
-//          Text("Size: \(calcSize().asAmountString) px.")
-//            .font(Font.appFont(size: calcFontSize()))
-//            .foregroundColor(.red)
-//          Text("Alt + H: \(coinPointM.fullHeight.asAmountString) m.")
-//            .font(Font.appFont(size: calcFontSize()))
-//            .foregroundColor(.red)
+          ZStack {
+            getCoinView(coinType: coinPointM.coinType)
+              .frame(width: frameSize, height: frameSize)
+            
+            VStack {
+              Text("\(coinPointM.title)")
+                .font(Font.appFont(size: fontSize))
+                .foregroundColor(.black)
+                .fontWeight(.semibold)
+              Text("\(distance2D.asAmountString)")
+                .font(Font.appFont(size: fontSize))
+                .foregroundColor(.black)
+              Text("\(deltaH.asAmountString)")
+                .font(Font.appFont(size: fontSize))
+                .foregroundColor(.black)
+            }
+          }
         }
         .animation(.default, value: locationManager.magneticHeading)
         .animation(.default, value: motionManager.gravityZ)
@@ -86,51 +65,37 @@ extension CoinPointView {
   @ViewBuilder
   func getCoinView(coinType: String) -> some View {
     if isNearest {
-      // Rotate coin
-        CoinSequenceView(coinType: coinType)
+      // Sequented coin
+      CoinSequenceView(coinType: coinType, interval: 0.05)
     } else {
-      // Show static coin with opacity by rate
+      // Static coin with opacity by rate
       Image(String(format: "\(coinType)_%05d", 10))
         .resizable()
-        .opacity(isNearest ? 1 : rate)
+//        .opacity(isNearest ? 1 : distRate2D)
     }
   }
   
-  //  Delta hight in meters
-  private var deltaHeight: Double {
-    locationManager.altitude -  coinPointM.height - coinPointM.alt
-  }
-  
-  private var deltaHeightOffset: Double {
-    let delta = (2 * distance2D * tan((maxPVAngle/2).degToRad) * deltaHeight) / screenHeight
-    
-    return delta
-  }
-  
   private var fontSize: CGFloat {
-    return CGFloat(maxFont * rate)
-//    return CGFloat(fontSize < minFont ? minFont : fontSize)
+    return maxFont * distRate2D
   }
   
   private var frameSize: Double {
-    return maxFrame * rate
+    return maxFrame * distRate2D
   }
   
-  private var rate: Double {
-//    let distance = calcDistance()
-    
-    switch distanceP2P {
+  private var distRate2D: Double {
+    switch distance2D {
       case 0..<minDist:
         return 1
       case minDist...maxDist:
-        return 1 - distanceP2P/maxDist
+        return 1 - distance2D/maxDist
       default:
         return 0
     }
   }
   
   private var distanceP2P: Double {
-    sqrt(pow(distance2D, 2) + pow(deltaHeight, 2))
+    sqrt(pow(distance2D, 2) + pow(deltaH, 2))
   }
   
   private var distance2D: Double {
@@ -146,49 +111,45 @@ extension CoinPointView {
   }
   
   private var isVisible: Bool {
-    let distance = distance2D
-   // Need to set || instead && for showing Coin Anyway from 0...minDist
-    return distance <= maxDist && (-60...60).contains(bearingDiff)
+    return (0...maxDist).contains(distance2D) && (-60...60).contains(bearingDiff)
+  }
+  
+  private var deltaH: Double {
+    coinPointM.fullHeight - locationManager.altitude
+  }
+  
+  private var gravityZ: Double {
+    motionManager.gravityZ
+  }
+  
+  // Return from Down to Up (-.pi/2 ... .pi/2)
+  private var gravityZInRad: Double {
+    asin(gravityZ)
+  }
+  
+  // Angle between horizont and vector to Point
+  private var pointPitchInRad: Double {
+    gravityZInRad - atan(deltaH/distance2D)
   }
   
   private var yOffset: CGFloat {
-    let screenHeight = UIScreen.main.bounds.height
-    let gravityZ = CGFloat(motionManager.gravityZ)
-    let yOffset = (screenHeight * gravityZ) + .pi * deltaHeightOffset
-    
-    return yOffset
+    return screenHeight * tan(pointPitchInRad) * distRate2D
   }
   
   private var xOffset: CGFloat {
-    let distance = distance2D
-    let xOffset = (UIScreen.main.bounds.width * sin(bearingDiff.degToRad)).rounded(to: 1)
-    
-    return distance < minDist ? 0.0 : xOffset
+    return distance2D < minDist ? 0.0 : (screenWidth * sin(bearingDiff.degToRad))
   }
 }
 
 struct CoinPointViewView_Previews: PreviewProvider {
-//  @State static var maxDist = 50
-  
   static var previews: some View {
-    CoinPointView(coinPointM: CoinPointModel.points[0], motionManager: MotionManager(), locationManager: LocationManager(), minDist: 3, maxDist: .constant(50), isNearest: true)
+    CoinPointView(
+      coinPointM: CoinPointModel.points[0],
+      motionManager: MotionManager(),
+      locationManager: LocationManager(),
+      minDist: 3,
+      maxDist: .constant(50),
+      isNearest: true
+    )
   }
 }
-
-
-
-//            .foregroundColor(Color.App.gold)
-//          CoinSequenceView(coinType: coinPointM.coinType)
-
-//          Text("\(targetModel.amount.asAmountString) $")
-
-//      VStack(alignment: .leading) {
-//        Text("Rate: \(rate())")
-//        Text("SCR_W: \(UIScreen.main.bounds.width)")
-//        Text("SCR_H: \(UIScreen.main.bounds.height)")
-//        Text("Altitude: \(locationManager.altitude.rounded(to: 2))")
-//        Text("Distance: \(calcDistance().rounded(to: 2))")
-//        Text("Bearing: \(calcBearing().rounded(to: 2))")
-//        Text("Mag Heading: \(locationManager.magneticHeading.rounded(to: 2))")
-//        Text("DIFF: \(calcDiff().rounded(to: 2))")
-//      }

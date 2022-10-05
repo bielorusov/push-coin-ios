@@ -101,17 +101,16 @@ class CoinPointModel: Identifiable, ObservableObject {
   
   static var dashkaPoints: [CoinPointModel] {
     [
-      CoinPointModel(title: "Dhk 180", subtitle: "Alt 100m", coinType: "coin", amount: 777, lat: 50.484062, lon: 30.599765, alt: 100.0, height: 80),
-      CoinPointModel(title: "Dhk 310", subtitle: "Alt 300m", coinType: "coin", amount: 777, lat: 50.484497, lon: 30.602798, alt: 300.0, height: 10),
-      CoinPointModel(title: "Врл 30", subtitle: "Alt 300m", coinType: "coin", amount: 33, lat:50.483651, lon: 30.599027, alt: 0, height: 30)
-      
+      CoinPointModel(title: "D1", subtitle: "Alt 10m", coinType: "coin", amount: 777, lat: 50.484497, lon: 30.602798, alt: 10, height: 0),
+      CoinPointModel(title: "D2", subtitle: "Alt 50m", coinType: "coin", amount: 777, lat: 50.484444, lon: 30.602435, alt: 50, height: 0),
+      CoinPointModel(title: "D3", subtitle: "Alt 100m", coinType: "coin", amount: 33, lat: 50.483651, lon: 30.599027, alt: 100, height: 0),
+      CoinPointModel(title: "D4", subtitle: "Alt 500m", coinType: "coin", amount: 33, lat: 50.482169, lon: 30.599883, alt: 500, height: 0)
     ]
   }
-  
-  
+    
   static var points: [CoinPointModel] {
 //    dashkaPoints  //+ obolonPoints
-    [arsPoints[0]]
+    dashkaPoints
   }
   
   static var obolonPoints: [CoinPointModel] {
