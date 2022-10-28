@@ -107,10 +107,21 @@ class CoinPointModel: Identifiable, ObservableObject {
       CoinPointModel(title: "D4", subtitle: "Alt 500m", coinType: "coin", amount: 33, lat: 50.482169, lon: 30.599883, alt: 500, height: 0)
     ]
   }
+  
+  static var seloPoints: [CoinPointModel] {
+    [
+      CoinPointModel(title: "S1", subtitle: "_S1_", coinType: "coin", amount: 10, lat: 50.409200, lon: 32.020672, alt: 2, height: 10),
+      CoinPointModel(title: "S2", subtitle: "_S2_", coinType: "coin", amount: 11, lat: 50.409045, lon: 32.020644, alt: 5, height: 10),
+      CoinPointModel(title: "S3", subtitle: "_S3_", coinType: "coin", amount: 12, lat: 50.409034, lon: 32.021231, alt: 10, height: 10),
+      CoinPointModel(title: "S4", subtitle: "_S4_", coinType: "coin", amount: 13, lat: 50.408809, lon: 32.020589, alt: 12, height: 10),
+      CoinPointModel(title: "S5", subtitle: "_S5_", coinType: "coin", amount: 14, lat: 50.408901, lon: 32.022184, alt: 15, height: 10),
+      CoinPointModel(title: "S5", subtitle: "_S5_", coinType: "coin", amount: 14, lat: 50.409207, lon: 32.022468, alt: 20, height: 10)
+    ]
+  }
     
   static var points: [CoinPointModel] {
 //    dashkaPoints  //+ obolonPoints
-    dashkaPoints
+    arsPoints + dashkaPoints + seloPoints
   }
   
   static var obolonPoints: [CoinPointModel] {
@@ -133,10 +144,12 @@ class CoinPointModel: Identifiable, ObservableObject {
   
   static var arsPoints: [CoinPointModel] {
     [
-      CoinPointModel(title: "Office UP 100m", subtitle: "Alt 100m", coinType: "coin", amount: 323, lat:50.44269993709849, lon: 30.546135071855485, alt: 200.0, height: 100),
-      CoinPointModel(title: "Coin Point", subtitle: "Shari", coinType: "coin", amount: 33.74, lat: 50.443262, lon: 30.544960,alt: 200.0, height: 50),
-      CoinPointModel(title: "Arsenal 1", subtitle: "Near Balls 1", coinType: "coin", amount: 23, lat: 50.443480, lon: 30.544884, alt: 200.0, height: 100),
-      CoinPointModel(title: "Arsenal 2", subtitle: "Near Balls 2", coinType: "coin", amount: 45, lat: 50.443254, lon: 30.544798, alt: 200.0, height: 150)
+      
+      CoinPointModel(title: "NO 50m", subtitle: "Alt 100m", coinType: "coin", amount: 323, lat:50.4429553093459, lon: 30.54617178671148, alt: 200.0, height: 50),
+      CoinPointModel(title: "Office UP 100m", subtitle: "Alt 100m", coinType: "coin", amount: 323, lat:50.44269993709849, lon: 30.546135071855485, alt: 200.0, height: 10),
+      CoinPointModel(title: "Coin Point", subtitle: "Shari", coinType: "coin", amount: 33.74, lat: 50.443262, lon: 30.544960,alt: 200.0, height: 10),
+      CoinPointModel(title: "Arsenal 1", subtitle: "Near Balls 1", coinType: "coin", amount: 23, lat: 50.443480, lon: 30.544884, alt: 200.0, height: 10),
+      CoinPointModel(title: "Arsenal 2", subtitle: "Near Balls 2", coinType: "coin", amount: 45, lat: 50.443254, lon: 30.544798, alt: 200.0, height: 10)
 //      CoinPointModel(title: "Arsenal 3", subtitle: "Near Balls 3", coinType: "coin",amount: 69, lat: 50.442964, lon: 30.544767),
 //      CoinPointModel(title: "Arsenal 4", subtitle: "Alleya 1", coinType: "coin", amount: 123, lat: 50.442584, lon: 30.544261),
 //      CoinPointModel(title: "Arsenal 5", subtitle: "Alleya 2", coinType: "coin",amount: 17, lat: 50.442458, lon: 30.544149),

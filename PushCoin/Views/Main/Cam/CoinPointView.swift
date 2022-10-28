@@ -107,7 +107,8 @@ extension CoinPointView {
   }
   
   private var deltaH: Double {
-    coinPointM.fullHeight - locationManager.altitude
+//    coinPointM.fullHeight - locationManager.altitude
+      coinPointM.height + locationManager.altitude
   }
   
   private var gravityZ: Double {
@@ -125,7 +126,7 @@ extension CoinPointView {
   }
   
   private var yOffset: CGFloat {
-    return screenHeight * tan(pointPitchInRad) * distRate2D
+    return screenHeight * tan(pointPitchInRad) //* distRate2D
   }
   
   private var xOffset: CGFloat {
