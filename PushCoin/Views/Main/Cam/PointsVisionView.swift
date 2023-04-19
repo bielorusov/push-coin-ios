@@ -12,7 +12,7 @@ struct PointsVisionView: View {
   @ObservedObject private var motionManager = MotionManager()
   
   let minDist: Double = 3.0
-  @State private var maxDist: Double = 50.0
+  @State private var maxDist: Double = 200.0
   
     var body: some View {
     ZStack {

@@ -126,7 +126,8 @@ extension CoinPointView {
   }
   
   private var yOffset: CGFloat {
-    return screenHeight * tan(pointPitchInRad) //* distRate2D
+//    return screenHeight * tan(pointPitchInRad) //* distRate2D
+      return 0.0
   }
   
   private var xOffset: CGFloat {
